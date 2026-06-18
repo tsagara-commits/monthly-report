@@ -3,27 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>月次売上報告 2026年5月</title>
+<title>月例報告会議 2026年5月</title>
 <style>
 :root{--primary:#1a3a5c;--accent:#e85d04;--positive:#2d9e5f;--negative:#d62828;--bg:#f5f7fa;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Hiragino Sans','Yu Gothic','Meiryo',sans-serif;background:var(--bg);color:var(--text);font-size:14px}
-header{background:linear-gradient(135deg,#1a3a5c,#2c5282);color:#fff;padding:28px 40px 24px;display:flex;align-items:flex-end;justify-content:space-between}
-header h1{font-size:24px;font-weight:700;letter-spacing:.02em}
-header .sub{font-size:13px;opacity:.8;margin-top:6px}
+header{background:linear-gradient(135deg,#1a3a5c,#2c5282);color:#fff;padding:22px 40px 18px;display:flex;align-items:flex-end;justify-content:space-between}
+header h1{font-size:22px;font-weight:700;letter-spacing:.02em}
+header .sub{font-size:13px;opacity:.8;margin-top:4px}
 header .badge{background:#e85d04;color:#fff;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap}
+
+/* ── タブナビゲーション ── */
+.tabs-nav{background:#fff;border-bottom:2px solid var(--border);padding:0 40px;display:flex;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.tab-btn{padding:14px 24px;font-size:13px;font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;white-space:nowrap}
+.tab-btn:hover{color:var(--primary)}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* ── タブパネル ── */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
 main{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
 section{margin-bottom:36px}
 .st{font-size:15px;font-weight:700;color:var(--primary);border-left:4px solid var(--accent);padding-left:10px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .kpi{background:var(--card);border-radius:12px;padding:18px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid var(--border);position:relative;overflow:hidden}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.kpi.kpi-green::before{background:var(--positive)}
+.kpi.kpi-red::before{background:var(--negative)}
+.kpi.kpi-yellow::before{background:#f59e0b}
 .kl{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 .kv{font-size:26px;font-weight:800;color:var(--primary);line-height:1;margin-bottom:4px}
 .ks{font-size:11px;color:var(--muted)}
+.ks.down{color:var(--negative)}
 .ky{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700;background:#dcfce7;color:#2d9e5f}
-.card{background:var(--card);border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid var(--border)}
-.card h3{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
+.card{background:var(--card);border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid var(--border);margin-bottom:14px}
+.card h3,.card-title{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
 .gw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
@@ -40,6 +55,7 @@ section{margin-bottom:36px}
 .nb{background:#eff6ff;border:1px solid #93c5fd;color:#1e40af}
 .ng{background:#f0fdf4;border:1px solid #86efac;color:#166534}
 .np{background:#fdf4ff;border:1px solid #e9d5ff;color:#6b21a8}
+.nr{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .li{display:flex;align-items:center;gap:5px;font-size:11px;color:#374151}
 .ld{width:10px;height:10px;border-radius:50%;flex-shrink:0}
@@ -66,17 +82,50 @@ tr:hover td{background:#f8fafc}
 .flow-card .fct{font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:8px}
 .flow-step{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;font-size:12px;line-height:1.5}
 .sn{background:#e85d04;color:#fff;border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px}
+
+/* ── 棒グラフ ── */
+.bar-chart{display:flex;flex-direction:column;gap:10px}
+.bar-row{display:flex;align-items:center;gap:10px;font-size:12px}
+.bar-label{min-width:80px;color:var(--muted)}
+.bar-track{flex:1;height:22px;background:#f1f5f9;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:#fff;min-width:30px}
+.bar-fill.red{background:linear-gradient(90deg,#d62828,#ef4444)}
+.bar-fill.yellow{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.bar-fill.blue{background:linear-gradient(90deg,#1a3a5c,#2c5282)}
+.bar-num{min-width:50px;text-align:right;font-size:12px;font-weight:700;color:var(--primary)}
+
+/* タグ */
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+.tag-green{background:#dcfce7;color:#166534}
+.tag-red{background:#fef2f2;color:#991b1b}
+.tag-yellow{background:#fffbeb;color:#92400e}
+.tag-blue{background:#eff6ff;color:#1e40af}
+
+@media(max-width:700px){.kpi-grid,.two,.three,.issue-grid,.model-flow{grid-template-columns:1fr}.tabs-nav{padding:0 16px;overflow-x:auto}.tab-btn{padding:12px 14px}}
 footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 </style>
 </head>
 <body>
+
 <header>
   <div>
-    <h1>&#128202; 月次売上報告 &#8213; 2026年5月</h1>
-    <div class="sub">集計期間：2026/05/01 〜 2026/05/31 &#124; 前年同月（2025年5月）比較付き</div>
+    <h1>&#128202; 月例報告会議 &#8213; 2026年5月</h1>
+    <div class="sub">AP Holdings / HR本部 &#124; 2026年6月19日</div>
   </div>
   <div class="badge">MONTHLY REPORT</div>
 </header>
+
+<nav class="tabs-nav">
+  <button class="tab-btn active" onclick="switchTab('fujisan',this)">🥞 富士山パンケーキ</button>
+  <button class="tab-btn" onclick="switchTab('yojitsu',this)">📊 予実管理</button>
+  <button class="tab-btn" onclick="switchTab('soshiki',this)">🏢 組織別課題</button>
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     TAB 1: 富士山パンケーキ
+═══════════════════════════════════════ -->
+<div id="tab-fujisan" class="tab-panel active">
 <main>
 
 <section>
@@ -233,7 +282,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <path d="M 105.2 28.6 A 112 112 0 0 1 170.0 8.0 L 170.0 64.0 A 56 56 0 0 0 137.6 74.3 Z" fill="#9ca3af" stroke="white" stroke-width="2"/>
 </svg><div class="legend"><div class="li"><span class="ld" style="background:#e85d04"></span>パンケーキ</div><div class="li"><span class="ld" style="background:#f48c06"></span>パンケーキ2枚</div><div class="li"><span class="ld" style="background:#2d9e5f"></span>カレー</div><div class="li"><span class="ld" style="background:#1a3a5c"></span>セットドリンク</div><div class="li"><span class="ld" style="background:#7c3aed"></span>プレート</div><div class="li"><span class="ld" style="background:#0891b2"></span>ピザ</div><div class="li"><span class="ld" style="background:#d62828"></span>おつまみ</div><div class="li"><span class="ld" style="background:#92400e"></span>ランチステーキ</div><div class="li"><span class="ld" style="background:#9ca3af"></span>その他</div></div></div>
 </div>
-<div class="notice nb" style="margin-top:14px">&#128204; <strong>メニュー構造変化：</strong>2026年よりドリンクは食事セット価格に内包。2025年「セットドリンク」¥600Kは現在の食事セット価格に含まれており単純比較不可。パンケーキ全体（セット+単品合算）は前年¥2,994K→今年¥4,661K（<strong>+55.7%</strong>）と大幅増。</div>
+<div class="notice nb" style="margin-top:14px">&#128204; <strong>メニュー構造変化：</strong>2026年よりドリンクは食事セット価格に内包。パンケーキ全体（セット+単品合算）は前年¥2,994K→今年¥4,661K（<strong>+55.7%</strong>）と大幅増。</div>
 </section>
 
 <section>
@@ -263,7 +312,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <div class="card">
 <table>
 <thead><tr><th>#</th><th>商品（セット+単品合算）</th><th>2026年5月</th><th>構成比</th><th>2025年5月</th><th>前年比</th></tr></thead>
-<tbody><tr><td class="r1">1</td><td>富士山パンケーキ</td><td>¥973,948</td><td>11.6%</td><td><div class="pct-bar"><div class="bar" style="width:77px"></div>12.1%</div></td><td style="color:#2d9e5f;font-weight:700">▲33.5%</td></tr>
+<tbody>
+<tr><td class="r1">1</td><td>富士山パンケーキ</td><td>¥973,948</td><td>11.6%</td><td><div class="pct-bar"><div class="bar" style="width:77px"></div>12.1%</div></td><td style="color:#2d9e5f;font-weight:700">▲33.5%</td></tr>
 <tr><td class="r2">2</td><td>富士山パンケーキ2枚</td><td>¥775,068</td><td>9.2%</td><td><div class="pct-bar"><div class="bar" style="width:61px"></div>7.1%</div></td><td style="color:#2d9e5f;font-weight:700">▲79.8%</td></tr>
 <tr><td class="r3">3</td><td>ビーフシチューオムライス</td><td>¥720,521</td><td>8.6%</td><td><div class="pct-bar"><div class="bar" style="width:57px"></div>7.5%</div></td><td style="color:#2d9e5f;font-weight:700">▲59.8%</td></tr>
 <tr><td class="rank">4</td><td>ブルーベリー&CCパンケーキ</td><td>¥491,768</td><td>5.9%</td><td><div class="pct-bar"><div class="bar" style="width:39px"></div>4.9%</div></td><td style="color:#2d9e5f;font-weight:700">▲65.7%</td></tr>
@@ -272,7 +322,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <tr><td class="rank">7</td><td>富士山欧風カレー</td><td>¥430,100</td><td>5.1%</td><td><div class="pct-bar"><div class="bar" style="width:34px"></div>4.8%</div></td><td style="color:#2d9e5f;font-weight:700">▲48.7%</td></tr>
 <tr><td class="rank">8</td><td>バナナチョコパンケーキ2枚</td><td>¥423,533</td><td>5.1%</td><td><div class="pct-bar"><div class="bar" style="width:34px"></div>3.7%</div></td><td style="color:#2d9e5f;font-weight:700">▲90.1%</td></tr>
 <tr><td class="rank">9</td><td>窯焼マルゲリータピッツァ</td><td>¥406,692</td><td>4.9%</td><td><div class="pct-bar"><div class="bar" style="width:32px"></div>4.7%</div></td><td style="color:#2d9e5f;font-weight:700">▲44.1%</td></tr>
-<tr><td class="rank">10</td><td>彩り野菜カレー</td><td>¥353,144</td><td>4.2%</td><td><div class="pct-bar"><div class="bar" style="width:28px"></div>6.7%</div></td><td style="color:#d62828;font-weight:700">▼13.2%</td></tr></tbody>
+<tr><td class="rank">10</td><td>彩り野菜カレー</td><td>¥353,144</td><td>4.2%</td><td><div class="pct-bar"><div class="bar" style="width:28px"></div>6.7%</div></td><td style="color:#d62828;font-weight:700">▼13.2%</td></tr>
+</tbody>
 </table>
 <div class="notice ny" style="margin-top:12px">&#9888;&#65039; <strong>彩り野菜カレー</strong>のみ前年比▼13.2%（¥407K→¥353K）。全商品が成長する中で唯一の減少品目。メニュー刷新後の訴求方法の見直しが必要。</div>
 </div>
@@ -295,15 +346,13 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <div class="model-box">
 <h4>モデルオーダー設計（案）</h4>
 <div class="model-flow">
-<div class="flow-card">
-<div class="fct">パターンA：食事メイン客</div>
+<div class="flow-card"><div class="fct">パターンA：食事メイン客</div>
 <div class="flow-step"><div class="sn">1</div><div>カレー / ピザ / オムライス（メイン）</div></div>
 <div class="flow-step"><div class="sn">2</div><div>ドリンクセット or 抹茶ラテ</div></div>
 <div class="flow-step"><div class="sn">3</div><div>食後のミニパンケーキを提案</div></div>
 </div>
-<div class="flow-card">
-<div class="fct">パターンB：パンケーキメイン客</div>
-<div class="flow-step"><div class="sn">1</div><div>アペタイザー1品（待ち時間活用）<br><span style="font-size:11px;opacity:.8">例：ブルスケッタ・クリームチーズ&ハニーナッツ等</span></div></div>
+<div class="flow-card"><div class="fct">パターンB：パンケーキメイン客</div>
+<div class="flow-step"><div class="sn">1</div><div>アペタイザー1品（待ち時間活用）</div></div>
 <div class="flow-step"><div class="sn">2</div><div>パンケーキ（メイン）+ ドリンクセット</div></div>
 <div class="flow-step"><div class="sn">3</div><div>トッピング追加提案</div></div>
 </div>
@@ -313,55 +362,298 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 
 <div class="ic">
 <div class="ct">&#9888; 課題2　アペタイザーメニューの不足</div>
-<div class="cb">
-<strong>現状：</strong>パンケーキ待ち時間に楽しめる「ちょいつまみ」が不十分。おつまみ売上¥216,182（2.6%）と構成比は低め。パンケーキ前の「アミューズ的一品」の位置づけが未確立。<br><br>
-アペタイザーが充実すれば客単価向上と待ち時間の満足度向上を同時に実現できる。
-</div>
+<div class="cb"><strong>現状：</strong>おつまみ売上¥216,182（2.6%）と構成比は低め。パンケーキ前の「アミューズ的一品」の位置づけが未確立。アペタイザーが充実すれば客単価向上と待ち時間の満足度向上を同時に実現できる。</div>
 </div>
 <div class="ac">
 <div class="ct">&#10003; 対策2　アペタイザーの開発・訴求</div>
-<div class="cb">
-・<strong>新アペタイザー開発：</strong>サーモン&アボカドブルスケッタ・クリームチーズ&ハニーナッツトースト等、パンケーキとの相性が良く軽めの前菜を整備。<br><br>
-・<strong>「パンケーキが来るまでの一品」POPを設置：</strong>待ち時間の自然な追加注文を促す。<br><br>
-・<strong>スタッフ口頭提案のルーティン化：</strong>パンケーキ注文時に「お先に一品いかがですか？」を必ず伝える。
-</div>
+<div class="cb">・<strong>新アペタイザー開発：</strong>サーモン&アボカドブルスケッタ等、軽めの前菜を整備。<br><br>・<strong>「パンケーキが来るまでの一品」POPを設置：</strong>待ち時間の自然な追加注文を促す。<br><br>・<strong>スタッフ口頭提案のルーティン化：</strong>パンケーキ注文時に「お先に一品いかがですか？」を必ず伝える。</div>
 </div>
 
 <div class="ic">
 <div class="ct">&#9888; 課題3　インバウンド集客の安定化</div>
-<div class="cb">
-<strong>現状：</strong>平日売上はインバウンド客の来訪有無に強く連動。来訪がある日は平日でも好調（水曜前年比+110%等）。<br><br>
-「河口湖 ランチ」「河口湖 カフェ」などの検索で上位表示されており流入経路は確立。次の課題はGBPの口コミ質・量とGoogle掲載画像の最適化で、検索後の選択率をさらに上げること。現在口コミ数はまもなく1,000件に到達（評価4.4）。
-</div>
+<div class="cb"><strong>現状：</strong>平日売上はインバウンド客の来訪有無に強く連動。GBP口コミ数まもなく1,000件（評価4.4）。次の課題はGBPの口コミ質・量と掲載画像の最適化で選択率を上げること。</div>
 </div>
 <div class="ac">
 <div class="ct">&#10003; 対策3　インバウンド集客の仕組み化</div>
-<div class="cb">
-・<strong>GBP口コミ1,000件→4.6を目指す：</strong>現在4.4。来店客への5☆レビュー依頼を徹底し、1,000件達成後も継続的に高評価口コミを積み上げる。<br><br>
-・<strong>Google掲載画像の最適化：</strong>検索結果で最初に目に入る写真が来店動機に直結。料理・店内・富士山ビューなど映える写真を定期的に追加・更新。<br><br>
-・<strong>多言語コンテンツ強化：</strong>Google Maps・英語Instagram等での発信を継続し、来日前からの認知獲得を強化。
-</div>
+<div class="cb">・<strong>GBP口コミ1,000件→4.6を目指す：</strong>来店客への5☆レビュー依頼を徹底。<br><br>・<strong>Google掲載画像の最適化：</strong>料理・店内・富士山ビューなど映える写真を定期的に追加。<br><br>・<strong>多言語コンテンツ強化：</strong>Google Maps・英語Instagram等での発信を継続。</div>
 </div>
 
 <div class="ic">
 <div class="ct">&#9888; 課題4　彩り野菜カレーの売上減少</div>
-<div class="cb">
-<strong>現状：</strong>唯一の前年比マイナス（¥407K→¥353K / ▼13.2%）。2025年はカレー類で最高売上だったが、2026年は富士山欧風カレー（¥430K）に抜かれた。<br><br>
-彩り野菜カレーは通常の欧風カレーに野菜をトッピングした商品。現状のメニュー表示では富士山欧風カレーとの差別化が伝わりにくく、見せ方・並べ方の工夫で選ばれやすくなる余地がある。
-</div>
+<div class="cb"><strong>現状：</strong>唯一の前年比マイナス（¥407K→¥353K / ▼13.2%）。2025年はカレー類最高売上だったが富士山欧風カレー（¥430K）に抜かれた。差別化が伝わりにくい。</div>
 </div>
 <div class="ac">
 <div class="ct">&#10003; 対策4　彩り野菜カレーの再訴求</div>
-<div class="cb">
-・<strong>メニュー上の見せ方を変える：</strong>富士山欧風カレーより彩り野菜カレーが先に目に入るよう順番・レイアウトを見直す。写真・説明文で野菜の彩りと食べ応えを伝える。<br><br>
-・<strong>スタッフの声かけ：</strong>「野菜たっぷりの彩りカレーもおすすめです」とオーダー時に一言添える導線づくり。<br><br>
-・<strong>パターンAモデルオーダーの中心メニューとして再定義：</strong>食後パンケーキへの橋渡し役として訴求。
-</div>
+<div class="cb">・<strong>メニュー上の見せ方を変える：</strong>写真・説明文で野菜の彩りと食べ応えを伝える。<br><br>・<strong>スタッフの声かけ：</strong>「野菜たっぷりの彩りカレーもおすすめです」を導線化。<br><br>・<strong>パターンAモデルオーダーの中心メニューとして再定義。</strong></div>
 </div>
 
 </div>
 </section>
+
 </main>
-<footer>作成日：2026年6月19日 | データ出典：POSシステム日別・商品別売上レポート（2026年5月 / 2025年5月）</footer>
+</div><!-- /tab-fujisan -->
+
+
+<!-- ═══════════════════════════════════════
+     TAB 2: 予実管理
+═══════════════════════════════════════ -->
+<div id="tab-yojitsu" class="tab-panel">
+<main>
+
+<section>
+<div class="st">&#128197; 人材開発部 予実差異報告（2026年4〜5月）</div>
+
+<!-- 4月 -->
+<div class="card">
+  <div class="card-title">📅 2026年4月（202604）確定実績</div>
+  <div class="kpi-grid">
+    <div class="kpi kpi-yellow"><div class="kl">人件費 予算</div><div class="kv">¥2,140,000</div><div class="ks">見込 ¥2,050,000</div></div>
+    <div class="kpi kpi-red"><div class="kl">人件費 確定実績</div><div class="kv">¥1,880,936</div><div class="ks down">予算差 ▼¥259,064</div></div>
+    <div class="kpi kpi-yellow"><div class="kl">採用募集費 予算</div><div class="kv">¥6,714,582</div><div class="ks">見込 ¥7,049,870</div></div>
+    <div class="kpi kpi-green"><div class="kl">採用募集費 確定実績</div><div class="kv">¥6,268,883</div><div class="ks down">予算差 ▼¥445,699</div></div>
+  </div>
+  <div class="two" style="margin-top:14px">
+    <div class="notice nb"><strong>【人件費】下振れ要因</strong><br>寮費の支払いと控除で見込んでいたギャップがほぼトントンで着地したため、やや下振れ。</div>
+    <div class="notice nb"><strong>【採用募集費】下振れ要因</strong><br>入社式の費用が4月に計上できなかったため、着地見込みよりもその分下振れ。</div>
+  </div>
+</div>
+
+<!-- 5月 -->
+<div class="card">
+  <div class="card-title">📅 2026年5月（202605）確定実績</div>
+  <div class="kpi-grid">
+    <div class="kpi kpi-yellow"><div class="kl">人件費 予算</div><div class="kv">¥2,050,000</div><div class="ks">見込 ¥2,120,000</div></div>
+    <div class="kpi kpi-red"><div class="kl">人件費 確定実績</div><div class="kv">¥870,687</div><div class="ks down">予算差 ▼¥1,179,313</div></div>
+    <div class="kpi kpi-yellow"><div class="kl">採用募集費 予算</div><div class="kv">¥6,334,582</div><div class="ks">見込 ¥6,645,298</div></div>
+    <div class="kpi kpi-red"><div class="kl">採用募集費 確定実績</div><div class="kv">¥4,634,563</div><div class="ks down">予算差 ▼¥1,700,019</div></div>
+  </div>
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+    <div class="notice nr"><strong>【人件費 主要下振れ要因①】富士山パンケーキ臨店費 未請求</strong><br>富士山パンケーキ臨店分のリクックへの費用請求（2ヶ月分）で約50万円の下振れ。</div>
+    <div class="notice ny"><strong>【人件費 主要下振れ要因②】その他人件費の低下</strong><br>それ以外でも30万円ほど前月確定実績より人件費が低い状況。トータル80万円の下振れ。</div>
+    <div class="notice ny"><strong>【人件費 主要下振れ要因③】寮費要因（要確認）</strong><br>寮費の支払いと控除で40万円下振れ（支払いより控除が大きい状態）。要因確認が必要。</div>
+    <div class="notice nb"><strong>【採用募集費】下振れ要因</strong><br>Indeed3月請求（請求遅れ）が5月計上予定だったため余分に200万円（中途＋アルバイト）を組んでいたが、実際は4月で計上完了。</div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128269; 課題と対策</div>
+<div class="issue-grid">
+
+<div class="ic">
+<div class="ct">&#9888; 課題1　富士山パンケーキ臨店費の未請求（約▼50万円）</div>
+<div class="cb">リクックへの臨店費用請求が2ヶ月分未実施。計上遅れが人件費の大幅下振れ（▼¥1,179,313）の主因となっている。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策1　費用請求フローの整備と期限設定</div>
+<div class="cb">臨店発生月の翌月末までにリクックへ請求完了する運用ルールを明文化。人材開発部内でチェックリストを設け、月次クロージング時に未請求の有無を確認する仕組みを導入。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題2　その他人件費の原因不明な低下（約▼30万円）</div>
+<div class="cb">臨店費以外にも前月確定実績より人件費が低い状態が継続。具体的な要因が未特定。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策2　人件費内訳の項目別精査</div>
+<div class="cb">給与・賞与・社保・交通費等の内訳を項目別に前月比較し、低下している費目を特定。異常値がある場合は人事システムのデータと照合して翌月報告会議に報告。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題3　寮費の支払い・控除バランスのズレ（約▼40万円）</div>
+<div class="cb">支払いより控除が大きい状態が発生しており、4月・5月と2ヶ月連続で寮費要因の下振れが生じている。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策3　寮費管理の仕組み化</div>
+<div class="cb">入退寮のタイミングと給与控除反映のラグを整理し、毎月の支払い額・控除額・差異を一覧管理。不一致が発生した場合の即時確認フローを設定。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題4　採用募集費の計上タイミングズレ（約▼200万円）</div>
+<div class="cb">Indeed3月請求が5月計上と見込んでいたが、実際は4月計上済み。見込みと実績の乖離が採用費の大幅下振れ（▼¥1,700,019）に直結。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策4　媒体請求サイクルの事前把握と予算調整</div>
+<div class="cb">Indeedなど主要媒体の請求サイクル・計上月を年度初めに確認し、予算の月次割り付けに反映。請求書受領時点で会計部門と計上月を即時共有するフローを確立。</div>
+</div>
+
+</div>
+</section>
+
+</main>
+</div><!-- /tab-yojitsu -->
+
+
+<!-- ═══════════════════════════════════════
+     TAB 3: 組織別課題
+═══════════════════════════════════════ -->
+<div id="tab-soshiki" class="tab-panel">
+<main>
+
+<section>
+<div class="st">&#128101; 人員状況 ― 2026年5月</div>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kl">正社員 在籍</div><div class="kv">652名</div><div class="ks">5月入社 11名 ／ 退社 11名</div></div>
+  <div class="kpi kpi-green"><div class="kl">正社員 離職率（今期）</div><div class="kv">20.3%</div><div class="ks">前期 19.4% → 改善傾向</div></div>
+  <div class="kpi"><div class="kl">PA 在籍</div><div class="kv">2,369名</div><div class="ks">5月入社 177名 ／ 退社 92名</div></div>
+  <div class="kpi kpi-red"><div class="kl">PA 離職率（5月単月）</div><div class="kv">7.1%</div><div class="ks down">年間換算 → 60.0% 着地予測</div></div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128203; 採用・離職 動向</div>
+<div class="notice nb" style="margin-bottom:10px"><strong>✅ 5月入社：11名（中途6名、特定技能5名）</strong><br>APSFでアルバイト・契約社員スタートの方が3名社員に変更、実質14名入社。昨年5月は20名離職あり、水準としては低位。</div>
+<div class="notice ng" style="margin-bottom:10px"><strong>✅ 6月以降の採用見込み（6/8時点）</strong><br>内定21名（前月比▲3名）／ オファー中5名 ／ 承諾14名 ／ 辞退2名。承諾が多く、次期入社が控えている。</div>
+<div class="notice nr"><strong>⚠ PA離職ペース 年間60%着地の懸念</strong><br>4月からの累計離職数が182名。このペースで推移すると年間離職率60.0%での着地が予測される。</div>
+</section>
+
+<section>
+<div class="st">&#128336; 労務状況 ― 超過残業</div>
+<div class="two">
+  <div class="card">
+    <div class="card-title">超過残業者数（月次）</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <span class="bar-label">2603</span>
+        <div class="bar-track"><div class="bar-fill red" style="width:57.5%;">93人</div></div>
+        <span class="bar-num">14.9%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">2604</span>
+        <div class="bar-track"><div class="bar-fill red" style="width:61%;">99人</div></div>
+        <span class="bar-num">15.8%</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">2605</span>
+        <div class="bar-track"><div class="bar-fill yellow" style="width:40.8%;">66人</div></div>
+        <span class="bar-num">10.6%</span>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">超過回数別（5月末時点）</div>
+    <table>
+      <thead><tr><th>区分</th><th>人数</th><th>状態</th></tr></thead>
+      <tbody>
+        <tr><td>超過3回目</td><td><strong>17人</strong></td><td><span class="tag tag-yellow">要注視</span></td></tr>
+        <tr><td>超過4回目</td><td>0人</td><td><span class="tag tag-green">問題なし</span></td></tr>
+        <tr><td>超過5回目</td><td>0人</td><td><span class="tag tag-green">問題なし</span></td></tr>
+        <tr><td>違反リーチ</td><td>0人</td><td><span class="tag tag-green">問題なし</span></td></tr>
+        <tr><td>違反</td><td>0人</td><td><span class="tag tag-green">問題なし</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="notice ny" style="margin-top:14px"><strong>⚠ AP Re:US（リアス職人事業部）で超過残業率40%程度</strong><br>全体としては約11%と3〜4月比で安定傾向だが、リアス職人事業部が突出。重点モニタリング継続。</div>
+</section>
+
+<section>
+<div class="st">&#128176; 採用費用 予実サマリー（4〜5月）</div>
+<div class="card">
+  <table>
+    <thead><tr><th>区分</th><th>4月予算</th><th>4月実績</th><th>4月予算比</th><th>5月予算</th><th>5月実績</th><th>5月予算比</th></tr></thead>
+    <tbody>
+      <tr><td><strong>中途採用費</strong></td><td>¥6,900千</td><td>¥5,436千</td><td><span class="tag tag-yellow">76.2%</span></td><td>¥7,050千</td><td>¥5,398千</td><td><span class="tag tag-yellow">76.6%</span></td></tr>
+      <tr><td>うち 特定技能</td><td>¥2,250千</td><td>—</td><td>—</td><td>¥1,800千</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>PA採用費</strong></td><td>¥4,650千</td><td>¥5,398千</td><td><span class="tag tag-red">116%</span></td><td>¥5,250千</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>合計</strong></td><td>¥14,495千</td><td>¥12,298千</td><td><span class="tag tag-yellow">84.8%</span></td><td>¥12,696千</td><td>¥12,424千</td><td><span class="tag tag-green">97.9%</span></td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="two">
+  <div class="card" style="text-align:center">
+    <div class="card-title">4月 採用単価</div>
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">¥34,622</div>
+    <div style="font-size:13px;color:var(--muted)">予算単価 ¥32,915</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--negative)">▲ 予算より高ブレ（+5.2%）</div>
+  </div>
+  <div class="card" style="text-align:center">
+    <div class="card-title">5月 採用単価</div>
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">¥28,056</div>
+    <div style="font-size:13px;color:var(--muted)">予算単価 ¥30,359</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--positive)">▼ 予算比で改善（−7.6%）</div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128101; 採用 ― カンテラ・リファラル状況</div>
+<div class="two">
+  <div class="card">
+    <div class="card-title">カンテラ採用</div>
+    <table>
+      <thead><tr><th></th><th>今期</th><th>前期</th><th>昨対</th></tr></thead>
+      <tbody><tr><td>件数</td><td><strong>2名</strong></td><td>27名</td><td style="color:var(--negative);font-weight:700">7.4%</td></tr></tbody>
+    </table>
+    <div class="notice nb" style="margin-top:12px;font-size:12px">5月はカンテラ0名。6月で2名確定。</div>
+  </div>
+  <div class="card">
+    <div class="card-title">リファラル採用</div>
+    <table>
+      <thead><tr><th></th><th>今期</th><th>前期</th><th>昨対</th></tr></thead>
+      <tbody><tr><td>件数</td><td><strong>2名</strong></td><td>10名</td><td style="color:var(--negative);font-weight:700">20.0%</td></tr></tbody>
+    </table>
+    <div class="notice ng" style="margin-top:12px;font-size:12px">5月リファラル1名（立ち寿司）。6月も1名リファラルで月給制契約社員入社予定。</div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128269; 課題と対策</div>
+<div class="issue-grid">
+
+<div class="ic">
+<div class="ct">&#9888; 課題1　PA離職率 年間60%着地ペース</div>
+<div class="cb">4月からの累計離職数182名。5月単月7.1%で推移しており、このペースでは年間60.0%着地が予測される。採用コストの継続的な増大と現場の人員不足が慢性化するリスクがある。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策1　離職理由の定量把握と早期フォロー強化</div>
+<div class="cb">退職者へのエグジットインタビューを全件実施し、理由を類型化。在籍3ヶ月未満の早期離職者に対して入社後30日・60日時点でのフォロー面談を義務化。高離職組織については店長・マネージャーと連携した改善計画を策定。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題2　カンテラ・リファラル採用が前期比大幅減</div>
+<div class="cb">カンテラ採用 今期2名（前期27名）、リファラル採用 今期2名（前期10名）と、低コスト採用チャネルが機能不全に近い状態。有料媒体依存が高まり採用単価を押し上げている。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策2　社内紹介制度の再活性化</div>
+<div class="cb">リファラル紹介者へのインセンティブを見直し、制度の認知率を高める。カンテラについてはPA→正社員登用の実績事例を社内で積極的に広報し、登用ルートの透明性を高める。月次のリファラル紹介件数をKPIとして可視化。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題3　AP Re:US（リアス職人事業部）超過残業率 約40%</div>
+<div class="cb">全体の超過残業率が約11%（改善傾向）のなかで、リアス職人事業部のみ突出した高水準が継続。超過3回目に該当する社員が全社で17名存在し、法令違反リスクが潜在する。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策3　リアス職人事業部への重点介入</div>
+<div class="cb">事業部長・人事責任者による緊急ヒアリングを実施し、業務量・人員配置・繁閑対応を確認。超過3回目17名に対しては個別面談と業務量の見直しを即時実施。超過4回目に達する前に是正計画を確定し、翌月報告会議で進捗を報告。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題4　正社員採用 入社数と離職数のバランス</div>
+<div class="cb">5月の正社員は入社11名・退社11名とネットゼロ。今期の離職率20.3%は前期比改善も、採用パイプライン（内定21名・承諾14名）を活かして純増に転じられるかが次期の焦点。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策4　内定〜入社の歩留まり向上とオンボーディング強化</div>
+<div class="cb">承諾後の辞退を防ぐため、入社前フォロー（現場見学・メンター紹介・懸念事項Q&A）を強化。入社後3ヶ月の早期定着率をトラッキングし、特定技能を含む外国籍社員には生活支援・日本語サポートも充実させる。</div>
+</div>
+
+</div>
+</section>
+
+</main>
+</div><!-- /tab-soshiki -->
+
+
+<footer>作成日：2026年6月19日 | AP Holdings HR本部 | データ出典：POSシステム・人事システム（2026年5月）</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
 </body>
 </html>

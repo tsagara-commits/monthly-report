@@ -401,37 +401,103 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <main>
 
 <section>
-<div class="st">&#128197; 人材開発部 予実差異報告（2026年4〜5月）</div>
+<div class="st">&#128197; 見込み vs 着地（確定実績）差異報告（2026年4〜5月）</div>
 
-<!-- 4月 -->
-<div class="card">
-  <div class="card-title">📅 2026年4月（202604）確定実績</div>
-  <div class="kpi-grid">
-    <div class="kpi kpi-yellow"><div class="kl">人件費 予算</div><div class="kv">¥2,140,000</div><div class="ks">見込 ¥2,050,000</div></div>
-    <div class="kpi kpi-red"><div class="kl">人件費 確定実績</div><div class="kv">¥1,880,936</div><div class="ks down">予算差 ▼¥259,064</div></div>
-    <div class="kpi kpi-yellow"><div class="kl">採用募集費 予算</div><div class="kv">¥6,714,582</div><div class="ks">見込 ¥7,049,870</div></div>
-    <div class="kpi kpi-green"><div class="kl">採用募集費 確定実績</div><div class="kv">¥6,268,883</div><div class="ks down">予算差 ▼¥445,699</div></div>
-  </div>
-  <div class="two" style="margin-top:14px">
-    <div class="notice nb"><strong>【人件費】下振れ要因</strong><br>寮費の支払いと控除で見込んでいたギャップがほぼトントンで着地したため、やや下振れ。</div>
-    <div class="notice nb"><strong>【採用募集費】下振れ要因</strong><br>入社式の費用が4月に計上できなかったため、着地見込みよりもその分下振れ。</div>
+<!-- 差異サマリー表 -->
+<div class="card" style="margin-bottom:16px">
+  <div class="card-title">📋 見込み・着地 差異サマリー</div>
+  <table>
+    <thead>
+      <tr><th>月</th><th>区分</th><th>見込み</th><th>着地（確定実績）</th><th>差異</th><th>予算（参考）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2" style="font-weight:700;color:var(--primary)">4月</td>
+        <td>人件費</td>
+        <td>¥2,050,000</td>
+        <td><strong>¥1,880,936</strong></td>
+        <td><span class="tag tag-yellow">▼ ¥169,064</span></td>
+        <td style="color:var(--muted);font-size:12px">¥2,140,000</td>
+      </tr>
+      <tr>
+        <td>採用募集費</td>
+        <td>¥7,049,870</td>
+        <td><strong>¥6,268,883</strong></td>
+        <td><span class="tag tag-yellow">▼ ¥780,987</span></td>
+        <td style="color:var(--muted);font-size:12px">¥6,714,582</td>
+      </tr>
+      <tr style="background:#fef2f2">
+        <td rowspan="2" style="font-weight:700;color:var(--negative)">5月</td>
+        <td>人件費</td>
+        <td>¥2,120,000</td>
+        <td><strong>¥870,687</strong></td>
+        <td><span class="tag tag-red">▼ ¥1,249,313</span></td>
+        <td style="color:var(--muted);font-size:12px">¥2,050,000</td>
+      </tr>
+      <tr style="background:#fef2f2">
+        <td>採用募集費</td>
+        <td>¥6,645,298</td>
+        <td><strong>¥4,634,563</strong></td>
+        <td><span class="tag tag-red">▼ ¥2,010,735</span></td>
+        <td style="color:var(--muted);font-size:12px">¥6,334,582</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4月 詳細 -->
+<div class="card" style="margin-bottom:16px">
+  <div class="card-title">📅 2026年4月（202604）— 見込み差異の要因</div>
+  <div class="two">
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:12px;font-weight:700;color:var(--muted)">人件費</span>
+        <span style="font-size:12px;font-weight:700;color:#92400e">見込み比 ▼¥169,064</span>
+      </div>
+      <div class="notice ny">寮費の支払いと控除で見込んでいたギャップがほぼトントンで着地したため、やや下振れ。</div>
+    </div>
+    <div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:12px;font-weight:700;color:var(--muted)">採用募集費</span>
+        <span style="font-size:12px;font-weight:700;color:#92400e">見込み比 ▼¥780,987</span>
+      </div>
+      <div class="notice ny">入社式の費用が4月に計上できなかったため、見込みより下振れ。</div>
+    </div>
   </div>
 </div>
 
-<!-- 5月 -->
+<!-- 5月 詳細 -->
 <div class="card">
-  <div class="card-title">📅 2026年5月（202605）確定実績</div>
-  <div class="kpi-grid">
-    <div class="kpi kpi-yellow"><div class="kl">人件費 予算</div><div class="kv">¥2,050,000</div><div class="ks">見込 ¥2,120,000</div></div>
-    <div class="kpi kpi-red"><div class="kl">人件費 確定実績</div><div class="kv">¥870,687</div><div class="ks down">予算差 ▼¥1,179,313</div></div>
-    <div class="kpi kpi-yellow"><div class="kl">採用募集費 予算</div><div class="kv">¥6,334,582</div><div class="ks">見込 ¥6,645,298</div></div>
-    <div class="kpi kpi-red"><div class="kl">採用募集費 確定実績</div><div class="kv">¥4,634,563</div><div class="ks down">予算差 ▼¥1,700,019</div></div>
+  <div class="card-title">📅 2026年5月（202605）— 見込み差異の要因</div>
+
+  <div style="margin-bottom:14px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <span style="font-size:13px;font-weight:700;color:var(--primary)">人件費　見込み比 ▼¥1,249,313</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <div class="notice nb">
+        <strong>【要因①】河口湖事業推進室からの費用戻し　約▼¥500,000</strong><br>
+        河口湖事業推進室側でプラスになっていた費用を人材開発部に戻す処理を実施（2ヶ月で完了、来月で終了）。計画的な振替処理であり、翌月同処理後に解消される。
+      </div>
+      <div class="notice ny">
+        <strong>【要因②】その他人件費の低下　約▼¥300,000</strong><br>
+        要因①以外にも前月着地より人件費が低い状態。要因は現在精査中。
+      </div>
+      <div class="notice ny">
+        <strong>【要因③】寮費の支払い・控除ズレ　約▼¥400,000</strong><br>
+        支払いより控除が大きい状態（4月・5月連続）。要因確認が必要。
+      </div>
+    </div>
   </div>
-  <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
-    <div class="notice nr"><strong>【人件費 主要下振れ要因①】富士山パンケーキ臨店費 未請求</strong><br>富士山パンケーキ臨店分のリクックへの費用請求（2ヶ月分）で約50万円の下振れ。</div>
-    <div class="notice ny"><strong>【人件費 主要下振れ要因②】その他人件費の低下</strong><br>それ以外でも30万円ほど前月確定実績より人件費が低い状況。トータル80万円の下振れ。</div>
-    <div class="notice ny"><strong>【人件費 主要下振れ要因③】寮費要因（要確認）</strong><br>寮費の支払いと控除で40万円下振れ（支払いより控除が大きい状態）。要因確認が必要。</div>
-    <div class="notice nb"><strong>【採用募集費】下振れ要因</strong><br>Indeed3月請求（請求遅れ）が5月計上予定だったため余分に200万円（中途＋アルバイト）を組んでいたが、実際は4月で計上完了。</div>
+
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <span style="font-size:13px;font-weight:700;color:var(--primary)">採用募集費　見込み比 ▼¥2,010,735</span>
+    </div>
+    <div class="notice nb">
+      <strong>【要因】Indeedの計上タイミングのズレ　約▼¥2,000,000</strong><br>
+      Indeed3月請求分（中途＋アルバイト）が5月計上と見込んで予算を積んでいたが、実際は4月に計上完了。見込みの前提が実態とずれていたことによる下振れ。
+    </div>
   </div>
 </div>
 </section>
@@ -441,39 +507,30 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 <div class="issue-grid">
 
 <div class="ic">
-<div class="ct">&#9888; 課題1　富士山パンケーキ臨店費の未請求（約▼50万円）</div>
-<div class="cb">リクックへの臨店費用請求が2ヶ月分未実施。計上遅れが人件費の大幅下振れ（▼¥1,179,313）の主因となっている。</div>
+<div class="ct">&#9888; 課題1　人件費 その他低下の原因が未特定（約▼30万円）</div>
+<div class="cb">河口湖費用戻し・寮費以外にも、前月着地から人件費が低下している。費目が特定できておらず、継続的に下振れが生じるリスクがある。</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策1　費用請求フローの整備と期限設定</div>
-<div class="cb">臨店発生月の翌月末までにリクックへ請求完了する運用ルールを明文化。人材開発部内でチェックリストを設け、月次クロージング時に未請求の有無を確認する仕組みを導入。</div>
+<div class="ct">&#10003; 対策1　前月との突合による差分抽出</div>
+<div class="cb">前月確定実績との突合を項目ごとに行い、差分が発生している費目を抽出。次月報告会議までに原因を特定して報告する。</div>
 </div>
 
 <div class="ic">
-<div class="ct">&#9888; 課題2　その他人件費の原因不明な低下（約▼30万円）</div>
-<div class="cb">臨店費以外にも前月確定実績より人件費が低い状態が継続。具体的な要因が未特定。</div>
+<div class="ct">&#9888; 課題2　寮費の支払い・控除バランスのズレ（約▼40万円）</div>
+<div class="cb">4月・5月と2ヶ月連続で支払いより控除が大きい状態が続いており、見込み精度の低下につながっている。</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策2　人件費内訳の項目別精査</div>
-<div class="cb">給与・賞与・社保・交通費等の内訳を項目別に前月比較し、低下している費目を特定。異常値がある場合は人事システムのデータと照合して翌月報告会議に報告。</div>
+<div class="ct">&#10003; 対策2　寮費の支払い・控除を月次で照合</div>
+<div class="cb">入退寮のタイミングと控除反映のラグを整理し、毎月の支払い額・控除額・差異を一覧化。不一致が発生した場合は当月中に要因を確認するフローを設定。</div>
 </div>
 
 <div class="ic">
-<div class="ct">&#9888; 課題3　寮費の支払い・控除バランスのズレ（約▼40万円）</div>
-<div class="cb">支払いより控除が大きい状態が発生しており、4月・5月と2ヶ月連続で寮費要因の下振れが生じている。</div>
+<div class="ct">&#9888; 課題3　採用媒体費の見込み精度（計上月のズレ）</div>
+<div class="cb">Indeedなどの請求計上タイミングが見込みとずれ、採用募集費の見込み差異が大きくなっている。媒体ごとの請求サイクルが担当者間で共有されていないことが原因。</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策3　寮費管理の仕組み化</div>
-<div class="cb">入退寮のタイミングと給与控除反映のラグを整理し、毎月の支払い額・控除額・差異を一覧管理。不一致が発生した場合の即時確認フローを設定。</div>
-</div>
-
-<div class="ic">
-<div class="ct">&#9888; 課題4　採用募集費の計上タイミングズレ（約▼200万円）</div>
-<div class="cb">Indeed3月請求が5月計上と見込んでいたが、実際は4月計上済み。見込みと実績の乖離が採用費の大幅下振れ（▼¥1,700,019）に直結。</div>
-</div>
-<div class="ac">
-<div class="ct">&#10003; 対策4　媒体請求サイクルの事前把握と予算調整</div>
-<div class="cb">Indeedなど主要媒体の請求サイクル・計上月を年度初めに確認し、予算の月次割り付けに反映。請求書受領時点で会計部門と計上月を即時共有するフローを確立。</div>
+<div class="ct">&#10003; 対策3　担当者別の請求書受領確認フローに変更</div>
+<div class="cb">媒体ごとに社内担当者を明確化し、各担当が請求書の受領確認・計上月の確認まで責任を持つフローに変更。受領確認後、経理担当と計上月を即時共有する運用を徹底する。</div>
 </div>
 
 </div>

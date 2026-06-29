@@ -547,28 +547,117 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 </section>
 
 <section>
-<div class="st">&#128176; 採用費用 予実サマリー（4〜5月）</div>
-<div class="card">
-  <table>
-    <thead><tr><th>区分</th><th>4月予算</th><th>4月実績</th><th>4月予算比</th><th>5月予算</th><th>5月実績</th><th>5月予算比</th></tr></thead>
+<div class="st">&#128176; 採用費用 月次推移（単位：千円）</div>
+<div class="card" style="overflow-x:auto">
+  <table style="min-width:900px;font-size:12px">
+    <thead>
+      <tr style="background:var(--bg)">
+        <th style="min-width:120px;text-align:left">区分</th>
+        <th style="background:#e8f0fe;color:#1a3a5c">4月</th>
+        <th style="background:#e8f0fe;color:#1a3a5c">5月</th>
+        <th style="color:var(--muted)">6月</th><th style="color:var(--muted)">7月</th><th style="color:var(--muted)">8月</th>
+        <th style="color:var(--muted)">9月</th><th style="color:var(--muted)">10月</th><th style="color:var(--muted)">11月</th>
+        <th style="color:var(--muted)">12月</th><th style="color:var(--muted)">1月</th><th style="color:var(--muted)">2月</th><th style="color:var(--muted)">3月</th>
+        <th style="background:#f0fdf4;color:#2d9e5f">累計</th>
+      </tr>
+    </thead>
     <tbody>
-      <tr><td><strong>中途採用費</strong></td><td>¥9,059千</td><td>¥6,900千</td><td><span class="tag tag-yellow">76.2%</span></td><td>¥7,859千</td><td>¥7,050千</td><td><span class="tag tag-yellow">89.7%</span></td></tr>
-      <tr><td style="padding-left:1.5em">うち 中途（一般）</td><td>¥4,650千</td><td>—</td><td>—</td><td>¥5,250千</td><td>—</td><td>—</td></tr>
-      <tr><td style="padding-left:1.5em">うち 特定技能</td><td>¥2,250千</td><td>—</td><td>—</td><td>¥1,800千</td><td>—</td><td>—</td></tr>
-      <tr><td><strong>PA採用費</strong></td><td>¥5,436千</td><td>¥4,624千</td><td><span class="tag tag-green">85.1%</span></td><td>¥4,837千</td><td>¥5,414千</td><td><span class="tag tag-red">111.9%</span></td></tr>
-      <tr><td><strong>合計</strong></td><td>¥14,495千</td><td>¥11,524千</td><td><span class="tag tag-yellow">79.5%</span></td><td>¥12,696千</td><td>¥12,464千</td><td><span class="tag tag-green">98.2%</span></td></tr>
+      <!-- 中途採用費 -->
+      <tr style="background:#f8faff">
+        <td style="font-weight:700;color:var(--primary)">中途採用費 予算</td>
+        <td style="background:#e8f0fe">9,059</td><td style="background:#e8f0fe">7,859</td>
+        <td style="color:var(--muted)">8,159</td><td style="color:var(--muted)">3,959</td><td style="color:var(--muted)">4,709</td>
+        <td style="color:var(--muted)">6,209</td><td style="color:var(--muted)">6,659</td><td style="color:var(--muted)">5,459</td>
+        <td style="color:var(--muted)">2,050</td><td style="color:var(--muted)">5,459</td><td style="color:var(--muted)">7,709</td><td style="color:var(--muted)">6,959</td>
+        <td style="background:#f0fdf4;color:var(--muted)">74,250</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--primary)">中途採用費 実績</td>
+        <td style="background:#e8f0fe;font-weight:700">6,900</td><td style="background:#e8f0fe;font-weight:700">7,050</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4;font-weight:700">13,950</td>
+      </tr>
+      <tr style="background:#f8faff">
+        <td style="padding-left:1.2em;color:var(--muted)">うち 中途（一般）予算</td>
+        <td style="background:#e8f0fe;color:var(--muted)">4,650</td><td style="background:#e8f0fe;color:var(--muted)">5,250</td>
+        <td colspan="10" style="color:var(--muted);text-align:center">—</td>
+        <td style="background:#f0fdf4;color:var(--muted)">9,900</td>
+      </tr>
+      <tr>
+        <td style="padding-left:1.2em;color:var(--muted)">うち 特定技能 予算</td>
+        <td style="background:#e8f0fe;color:var(--muted)">2,250</td><td style="background:#e8f0fe;color:var(--muted)">1,800</td>
+        <td colspan="10" style="color:var(--muted);text-align:center">—</td>
+        <td style="background:#f0fdf4;color:var(--muted)">4,050</td>
+      </tr>
+      <tr style="background:#fafff4">
+        <td style="padding-left:1.2em;color:var(--muted)">予算比</td>
+        <td style="background:#e8f0fe"><span class="tag tag-yellow">76.2%</span></td>
+        <td style="background:#e8f0fe"><span class="tag tag-yellow">89.7%</span></td>
+        <td colspan="10" style="color:var(--muted);text-align:center">—</td>
+        <td style="background:#f0fdf4"><span class="tag tag-yellow">18.8%</span></td>
+      </tr>
+      <!-- PA採用費 -->
+      <tr style="border-top:2px solid var(--border);background:#f8faff">
+        <td style="font-weight:700;color:var(--primary)">PA採用費 予算</td>
+        <td style="background:#e8f0fe">5,436</td><td style="background:#e8f0fe">4,837</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4;color:var(--muted)">10,273</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700;color:var(--primary)">PA採用費 実績</td>
+        <td style="background:#e8f0fe;font-weight:700">4,624</td><td style="background:#e8f0fe;font-weight:700">5,414</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4;font-weight:700">10,038</td>
+      </tr>
+      <tr style="background:#fafff4">
+        <td style="padding-left:1.2em;color:var(--muted)">予算比</td>
+        <td style="background:#e8f0fe"><span class="tag tag-green">85.1%</span></td>
+        <td style="background:#e8f0fe"><span class="tag tag-red">111.9%</span></td>
+        <td colspan="10" style="color:var(--muted);text-align:center">—</td>
+        <td style="background:#f0fdf4"><span class="tag tag-yellow">97.7%</span></td>
+      </tr>
+      <!-- 合計 -->
+      <tr style="border-top:2px solid var(--border);background:#f0f4ff;font-weight:700">
+        <td style="color:var(--primary)">合計予算</td>
+        <td style="background:#dce8ff">14,495</td><td style="background:#dce8ff">12,696</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#d4edda">27,191</td>
+      </tr>
+      <tr style="background:#f0f4ff;font-weight:700">
+        <td style="color:var(--primary)">合計実績</td>
+        <td style="background:#dce8ff">11,524</td><td style="background:#dce8ff">12,464</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#d4edda">23,988</td>
+      </tr>
+      <tr style="background:#f0f4ff">
+        <td style="font-weight:700;color:var(--primary)">予算比</td>
+        <td style="background:#dce8ff"><span class="tag tag-yellow">79.5%</span></td>
+        <td style="background:#dce8ff"><span class="tag tag-green">98.2%</span></td>
+        <td colspan="10" style="color:var(--muted);text-align:center">—</td>
+        <td style="background:#d4edda"><span class="tag tag-yellow">88.2%</span></td>
+      </tr>
     </tbody>
   </table>
 </div>
 <div class="two">
   <div class="card" style="text-align:center">
-    <div class="card-title">4月 採用単価</div>
+    <div class="card-title">4月 採用単価（PA）</div>
     <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">¥34,622</div>
     <div style="font-size:13px;color:var(--muted)">予算単価 ¥28,195</div>
     <div style="font-size:13px;margin-top:4px;color:var(--negative)">▲ 予算より高ブレ（+22.8%）</div>
   </div>
   <div class="card" style="text-align:center">
-    <div class="card-title">5月 採用単価</div>
+    <div class="card-title">5月 採用単価（PA）</div>
     <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">¥28,056</div>
     <div style="font-size:13px;color:var(--muted)">予算単価 ¥30,589</div>
     <div style="font-size:13px;margin-top:4px;color:var(--positive)">▼ 予算比で改善（−8.3%）</div>

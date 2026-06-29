@@ -112,7 +112,10 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
     <h1>&#128202; 月例報告会議 &#8213; 2026年5月</h1>
     <div class="sub">AP Holdings / HR本部 &#124; 2026年6月19日</div>
   </div>
-  <div class="badge">MONTHLY REPORT</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <select id="month-select" onchange="loadMonth(this.value)" style="padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.15);color:#fff;font-size:13px;font-weight:600;cursor:pointer;appearance:none;-webkit-appearance:none;padding-right:28px;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 12 12%22><path fill=%22white%22 d=%22M6 8L1 3h10z%22/></svg>');background-repeat:no-repeat;background-position:right 8px center"></select>
+    <div class="badge">MONTHLY REPORT</div>
+  </div>
 </header>
 
 <nav class="tabs-nav">
@@ -120,13 +123,17 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
   <button class="tab-btn" onclick="switchTab('yojitsu',this)">📊 予実管理</button>
   <button class="tab-btn" onclick="switchTab('soshiki',this)">🏢 組織別課題</button>
 </nav>
+<!-- TAB PANELS -->
+<div id="tab-fujisan" class="tab-panel active"></div>
+<div id="tab-yojitsu" class="tab-panel"></div>
+<div id="tab-soshiki" class="tab-panel"></div>
 
-
-<!-- ═══════════════════════════════════════
-     TAB 1: 富士山パンケーキ
-═══════════════════════════════════════ -->
-<div id="tab-fujisan" class="tab-panel active">
-<main>
+<script>
+const REPORT_DATA = {
+  '2026-05': {
+    label: '2026年5月',
+    reportDate: '2026年6月19日',
+    fujisan: `<main>
 
 <section>
 <div class="st">&#128200; 主要KPI（前年同月比）</div>
@@ -390,15 +397,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 </div>
 </section>
 
-</main>
-</div><!-- /tab-fujisan -->
-
-
-<!-- ═══════════════════════════════════════
-     TAB 2: 予実管理
-═══════════════════════════════════════ -->
-<div id="tab-yojitsu" class="tab-panel">
-<main>
+</main>`,
+    yojitsu: `<main>
 
 <section>
 <div class="st">&#128197; 人材開発部 予実差異報告（2026年4〜5月）</div>
@@ -479,15 +479,8 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 </div>
 </section>
 
-</main>
-</div><!-- /tab-yojitsu -->
-
-
-<!-- ═══════════════════════════════════════
-     TAB 3: 組織別課題
-═══════════════════════════════════════ -->
-<div id="tab-soshiki" class="tab-panel">
-<main>
+</main>`,
+    soshiki: `<main>
 
 <section>
 <div class="st">&#128101; 人員状況 ― 2026年5月</div>
@@ -730,13 +723,31 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 </div>
 </section>
 
-</main>
-</div><!-- /tab-soshiki -->
+</main>`
+  }
+};
 
+function loadMonth(ym) {
+  const d = REPORT_DATA[ym];
+  if (!d) return;
+  document.getElementById('tab-fujisan').innerHTML = d.fujisan;
+  document.getElementById('tab-yojitsu').innerHTML = d.yojitsu;
+  document.getElementById('tab-soshiki').innerHTML = d.soshiki;
+  document.querySelector('header h1').innerHTML = '&#128202; 月例報告会議 ― ' + d.label;
+  document.querySelector('header .sub').innerHTML = 'AP Holdings / HR本部 &#124; ' + d.reportDate;
+  document.title = '月例報告会議 ' + d.label;
+  const activeBtn = document.querySelector('.tab-btn.active');
+  if (activeBtn) {
+    const m = activeBtn.getAttribute('onclick').match(/'(\w+)'/);
+    if (m) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('tab-' + m[1]).classList.add('active');
+    }
+  } else {
+    document.getElementById('tab-fujisan').classList.add('active');
+  }
+}
 
-<footer>作成日：2026年6月19日 | AP Holdings HR本部 | データ出典：POSシステム・人事システム（2026年5月）</footer>
-
-<script>
 function switchTab(id, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -744,6 +755,19 @@ function switchTab(id, btn) {
   btn.classList.add('active');
   window.scrollTo(0, 0);
 }
+
+(function() {
+  const months = Object.keys(REPORT_DATA).sort().reverse();
+  const sel = document.getElementById('month-select');
+  months.forEach(ym => {
+    const opt = document.createElement('option');
+    opt.value = ym;
+    opt.textContent = REPORT_DATA[ym].label;
+    sel.appendChild(opt);
+  });
+  sel.value = months[0];
+  loadMonth(months[0]);
+})();
 </script>
 </body>
 </html>

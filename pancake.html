@@ -745,10 +745,23 @@ function loadMonth(ym) {
     sel.appendChild(opt);
   });
   sel.value = months[0];
+
+  // iframeに埋め込まれている場合は自前のヘッダー（タイトル・月セレクター）を隠し、
+  // 親ページの月セレクターと連動させる（ヘッダー二重表示を防止）
+  if (window.parent !== window) {
+    document.querySelector('header').style.display = 'none';
+  }
+
   loadMonth(months[0]);
   window.addEventListener('load', () => {
     if (window.parent !== window) {
       window.parent.postMessage({type:'pancake-resize', height: document.body.scrollHeight}, '*');
+    }
+  });
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'pancake-set-month' && REPORT_DATA[e.data.ym]) {
+      sel.value = e.data.ym;
+      loadMonth(e.data.ym);
     }
   });
 })();

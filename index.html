@@ -737,6 +737,10 @@ function loadMonth(ym) {
   document.querySelector('header h1').innerHTML = '&#128202; 月例報告会議 ― ' + d.label;
   document.querySelector('header .sub').innerHTML = 'AP Holdings / HR本部 &#124; ' + d.reportDate;
   document.title = '月例報告会議 ' + d.label;
+  const frame = document.getElementById('pancake-frame');
+  if (frame && frame.contentWindow) {
+    frame.contentWindow.postMessage({type:'pancake-set-month', ym: ym}, '*');
+  }
   const activeBtn = document.querySelector('.tab-btn.active');
   if (activeBtn) {
     const m = activeBtn.getAttribute('onclick').match(/'(\w+)'/);

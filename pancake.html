@@ -613,6 +613,23 @@ const REPORT_DATA = {
 </section>
 
 <section>
+<div class="st">&#127881; 新メニュー導入 ― 繁忙期対策（速報）</div>
+<div class="two">
+  <div class="card">
+    <div class="card-title">シーズナルスペシャルパンケーキ</div>
+    <div style="font-size:30px;font-weight:800;color:#e85d04">&#165;2,580</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:6px">繁忙期対策として導入。既に出数は好調に推移している。</div>
+  </div>
+  <div class="card">
+    <div class="card-title">エッグベネディクト</div>
+    <div style="font-size:30px;font-weight:800;color:#e85d04">&#165;1,780</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:6px">繁忙期対策として導入。既に出数は好調に推移している。</div>
+  </div>
+</div>
+<div class="notice ng" style="margin-top:14px">&#128204; いずれも既存の主力商品（富士山パンケーキ&#165;1,715前後、TOP10平均&#165;1,600&#12316;2,000円台）より高い価格帯で、選ばれるほど客単価が上がる構造。今回の6月実績には含まれない7月からの取り組みのため、出数・前年比等の詳細な数値は来月以降のレポートで反映予定。</div>
+</section>
+
+<section>
 <div class="st">&#129380; ドリンク出数分析（セット・単品・おかわり・アルコール込み）</div>
 <div class="card">
 <table>
@@ -713,6 +730,9 @@ function loadMonth(ym) {
   document.getElementById('report-date').textContent = '作成日：' + d.reportDate;
   document.title = '富士山パンケーキ 月次売上レポート ' + d.label;
   window.scrollTo(0, 0);
+  if (window.parent !== window) {
+    window.parent.postMessage({type:'pancake-resize', height: document.body.scrollHeight}, '*');
+  }
 }
 
 (function() {
@@ -726,6 +746,11 @@ function loadMonth(ym) {
   });
   sel.value = months[0];
   loadMonth(months[0]);
+  window.addEventListener('load', () => {
+    if (window.parent !== window) {
+      window.parent.postMessage({type:'pancake-resize', height: document.body.scrollHeight}, '*');
+    }
+  });
 })();
 </script>
 </body>

@@ -463,7 +463,71 @@ const REPORT_DATA = {
   '2026-06': {
     label: '2026年6月',
     reportDate: '2026年7月21日',
-        yojitsu: `<main><section><div style="text-align:center;padding:60px 20px;color:var(--muted)"><div style="font-size:48px;margin-bottom:16px">📊</div><div style="font-size:20px;font-weight:700;margin-bottom:8px">予実管理</div><div style="font-size:14px">2026年6月分のデータは準備中です</div></div></section></main>`,
+        yojitsu: `<main>
+
+<section>
+<div class="st">&#128197; 人材開発部 予実差異報告（2026年6月）</div>
+
+<div class="card">
+  <div class="card-title">📅 2026年6月（202606）確定実績</div>
+  <table>
+    <thead>
+      <tr>
+        <th>項目</th><th>予算</th><th>0701着地</th><th>確定実績</th>
+        <th>予算差<br><span style="font-size:10px;color:var(--muted);text-transform:none;font-weight:400">(0701着地&#8722;予算)</span></th>
+        <th>見込差異<br><span style="font-size:10px;color:var(--muted);text-transform:none;font-weight:400">(確定実績&#8722;0701着地)</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:700">人件費</td>
+        <td>&#165;2,170,000</td><td>&#165;2,200,000</td>
+        <td style="font-weight:700">&#165;3,800,203</td>
+        <td>&#165;30,000</td>
+        <td style="color:var(--negative);font-weight:700">&#9650;&#165;1,600,203</td>
+      </tr>
+      <tr>
+        <td style="font-weight:700">採用募集費</td>
+        <td>&#165;3,034,582</td><td>&#165;3,541,198</td>
+        <td style="font-weight:700">&#165;5,609,528</td>
+        <td>&#165;506,616</td>
+        <td style="color:var(--negative);font-weight:700">&#9650;&#165;2,068,330</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:10px">
+    <div class="notice nr"><strong>&#128204;【人件費】確定実績が0701着地から&#9650;約160万円上振れ</strong><br>特定技能の支援費用の支払いと、店舗振替のための控除が本来であればほぼトントンになる見込みだったが、店舗振替の控除分の反映がなく、その分で約160万円のギャップが発生。詳細は確認中で、反映があれば差異は解消する見込み。</div>
+    <div class="notice nr"><strong>&#128204;【採用募集費】確定実績が0701着地から&#9650;約207万円上振れ</strong><br>&#8226; APVAの賞品としての産地研修旅費精算が6月計上となり&#165;678,602<br>&#8226; スポーツ系合同説明会が見込み63万円&#8594;実績100万円でギャップ約40万円<br>&#8226; SupreShift（寿司職人系の人材紹介）で分割払いの請求書対応漏れがあり、単月で3ヶ月分（約66万円）を計上</div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128269; 課題と対策</div>
+<div class="issue-grid">
+
+<div class="ic">
+<div class="ct">&#9888; 課題1　人件費：店舗振替控除の未反映（約&#9650;160万円）</div>
+<div class="cb">特定技能支援費用の支払いと店舗振替のための控除は本来ほぼ相殺される見込みだったが、6月時点で店舗振替の控除分が反映されておらず、その分だけ確定実績が0701着地から上振れ。現時点では計上タイミングのズレと見られるが、詳細確認中。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策1　控除反映状況の確認と月次チェックフロー整備</div>
+<div class="cb">店舗振替控除の反映状況を給与システム側で確認し、反映があれば差異は解消する想定。今後は特定技能支援費用と店舗振替控除の計上タイミングを同一月内で揃えるよう、月次クロージング時のチェック項目に追加する。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題2　採用募集費：複数要因による上振れ（約&#9650;207万円）</div>
+<div class="cb">①APVA賞品の産地研修旅費精算が6月計上（67.9万円）、②スポーツ系合同説明会が見込み63万円&#8594;実績100万円（+40万円）、③SupreShiftの請求書対応漏れで3ヶ月分（66万円）を単月計上、という3つの要因が重なり採用募集費が大幅に上振れ。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策2　媒体・紹介会社の請求書管理と予算見直しの徹底</div>
+<div class="cb">SupreShiftなど分割払い契約の請求書受領状況を毎月確認するチェックリストを導入し、対応漏れを未然に防止。合同説明会等のイベント費用は事前見積りと実績の差異が生じやすいため、契約前に費用上限を確認するルールを設ける。産地研修旅費など賞品関連費用は発生月と計上月がズレやすいため、計上ルールを人事・会計間で事前に統一する。</div>
+</div>
+
+</div>
+</section>
+
+</main>`,
     soshiki: `<main>
 
 <section>

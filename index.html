@@ -38,6 +38,8 @@ section{margin-bottom:36px}
 .ks.down{color:var(--negative)}
 .ky{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:700;background:#dcfce7;color:#2d9e5f}
 .ky.down{background:#fef2f2;color:#991b1b}
+details>summary::-webkit-details-marker{display:none}
+details[open]>summary span:first-child{transform:rotate(90deg);display:inline-block}
 .card{background:var(--card);border-radius:12px;padding:20px 24px;box-shadow:0 1px 4px rgba(0,0,0,.08);border:1px solid var(--border);margin-bottom:14px}
 .card h3,.card-title{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:14px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -138,17 +140,34 @@ const REPORT_DATA = {
 
 <section>
 <div class="st">&#128197; 人材開発部 予実差異報告（2026年7月）</div>
-<div class="notice ny">&#9888;&#65039; <strong>202607の人件費・採用募集費の確定実績は、8/14時点で予実差異シートに未入力のため本レポートには反映していない。</strong>数値が確定し次第、本ページを更新する。以下は、採用費用データから確認できる7月の予実状況をまとめたもの。</div>
+<div class="notice ny">&#9888;&#65039; <strong>202607は採用募集費の確定実績のみ確定しており、人件費は8/14時点で予実差異シートに未入力。</strong>人件費の数値が確定し次第、本ページを更新する。</div>
 </section>
 
 <section>
-<div class="st">&#128176; 採用費 予実サマリ（2026年7月）</div>
+<div class="st">&#128176; 採用募集費（確定実績）― 2026年7月</div>
 <div class="kpi-grid">
-  <div class="kpi kpi-yellow"><div class="kl">中途採用費 7月実績</div><div class="kv">&#165;5,850千</div><div class="ks">予算 &#165;3,959千</div><div class="ky down">&#9650; 予算比 147.8%</div></div>
-  <div class="kpi"><div class="kl">中途採用費 4&#12316;7月累計</div><div class="kv">&#165;27,390千</div><div class="ks">同期間予算 &#165;29,036千</div><div class="ky">&#9660; 累計予算比 94.3%</div></div>
-  <div class="kpi"><div class="kl">PA採用費 7月実績</div><div class="kv">&#165;4,002千</div><div class="ks">6月 &#165;5,763千</div><div class="ky">&#9660; 前月比 -30.6%</div></div>
+  <div class="kpi kpi-red"><div class="kl">採用募集費 7月確定実績</div><div class="kv">&#165;6,979千</div><div class="ks">予算 &#165;3,375千</div><div class="ky down">&#9650; 予算比 206.8%</div></div>
+  <div class="kpi kpi-yellow"><div class="kl">採用募集費 4&#12316;7月累計</div><div class="kv">&#165;23,492千</div><div class="ks">同期間予算 &#165;19,458千</div><div class="ky down">&#9650; 累計予算比 120.7%</div></div>
+  <div class="kpi kpi-red"><div class="kl">（参考）採用費 中途+PA 7月</div><div class="kv">&#165;9,853千</div><div class="ks">予算 &#165;5,634千</div><div class="ky down">&#9650; 予算比 174.9%</div></div>
 </div>
-<div class="notice nb" style="margin-top:14px">&#128204; <strong>7月単月では中途採用費が予算比147.8%と超過したが、4&#12316;7月の累計では94.3%と予算内。</strong>7月の中途採用費予算は&#165;3,959千円と年間で最も低く設定されており（4月&#165;9,059千・5月&#165;7,859千・6月&#165;8,159千に対し）、単月の予算配分と実際の採用活動のタイミングがずれていることが超過の主因。実額としては前月比&#9660;22.0%（&#165;7,500千&#8594;&#165;5,850千）と減少している。</div>
+<div class="card" style="margin-top:14px">
+  <div class="card-title">採用募集費 月次推移（単位：千円）</div>
+  <table>
+    <thead><tr><th>区分</th><th>4月</th><th>5月</th><th>6月</th><th>7月</th><th>4&#12316;7月累計</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:700">予算</td><td>6,715</td><td>6,335</td><td>3,035</td><td>3,375</td><td>19,458</td></tr>
+      <tr><td style="font-weight:700">確定実績</td><td>6,269</td><td>4,635</td><td>5,610</td><td style="font-weight:700">6,979</td><td style="font-weight:700">23,492</td></tr>
+      <tr><td style="font-weight:700">予算比</td>
+        <td><span class="tag tag-green">93.4%</span></td>
+        <td><span class="tag tag-green">73.2%</span></td>
+        <td><span class="tag tag-red">184.9%</span></td>
+        <td><span class="tag tag-red">206.8%</span></td>
+        <td><span class="tag tag-red">120.7%</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="notice nr" style="margin-top:12px">&#128204; <strong>6月・7月と2ヶ月連続で予算比180%超。</strong>4月93.4%・5月73.2%と前半は予算内に収まっていたが、6月184.9%・7月206.8%と急激に悪化し、<strong>累計でも予算を超過（120.7%）に転じた</strong>。6月の超過は産地研修旅費・合同説明会・請求書対応漏れという一過性要因で説明していたが、7月も同水準で超過しており、一過性では説明できない。</div>
+</div>
 </section>
 
 <section>
@@ -161,7 +180,7 @@ const REPORT_DATA = {
       <tr><td style="font-weight:700">採用募集費</td><td>&#165;3,034,582</td><td>&#165;3,541,198</td><td style="font-weight:700">&#165;5,609,528</td><td style="color:var(--negative);font-weight:700">&#9650;&#165;2,068,330</td></tr>
     </tbody>
   </table>
-  <div class="notice nb" style="margin-top:12px">&#128204; 6月の人件費上振れ（店舗振替控除の未反映）は、反映されれば差異解消の見込みとして報告済み。<strong>7月の確定実績が入り次第、控除が反映されたかを最優先で確認する。</strong></div>
+  <div class="notice nb" style="margin-top:12px">&#128204; 6月の人件費上振れ（店舗振替控除の未反映）は、反映されれば差異解消の見込みとして報告済み。<strong>7月の人件費確定実績が入り次第、控除が反映されたかを最優先で確認する。</strong></div>
 </div>
 </section>
 
@@ -170,21 +189,34 @@ const REPORT_DATA = {
 <div class="issue-grid">
 
 <div class="ic">
-<div class="ct">&#9888; 課題1　202607の確定実績が報告時点で未確定</div>
-<div class="cb">8/14時点で人件費・採用募集費の202607確定実績が予実差異シートに未入力のため、当月の予実差異を報告できていない。6月分についても「店舗振替控除の未反映（約&#9650;160万円）」が未解決のまま持ち越しとなっており、2ヶ月連続で差異要因が確定しない状態が続くリスクがある。</div>
+<div class="ct">&#9888; 課題1　採用募集費が2ヶ月連続で予算比180%超 ― 累計でも予算超過に転落</div>
+<div class="cb">6月184.9%（&#165;5,610千）に続き、7月も206.8%（&#165;6,979千／予算&#165;3,375千）と大幅超過。<strong>4&#12316;7月の累計も120.7%となり、前半の貯金（4月93.4%・5月73.2%）を使い切った。</strong><br><br>
+6月の超過は「産地研修旅費の6月計上」「合同説明会の見積差」「請求書対応漏れによる3ヶ月分の一括計上」という一過性要因で説明していたが、7月も同水準で超過しており、<strong>一過性では説明がつかない。</strong>PA採用費が予算比239.0%（後述・組織別課題タブ）と連動している可能性が高い。</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策1　確定実績の締切を月次カレンダーに固定</div>
+<div class="ct">&#10003; 対策1　7月超過の内訳分解と、年間着地見込みの再提示</div>
+<div class="cb">&#8226; <strong>7月の&#165;6,979千を費目別に分解</strong>し、一過性（イベント・スポット計上）と恒常（媒体費・人材紹介費）に切り分ける。恒常分が予算を超えているなら予算そのものが実態と合っていない。<br>
+&#8226; <strong>年間着地見込みを再算出して次回報告で提示する。</strong>現ペース（月平均&#165;5,873千）が続くと年間&#165;70,476千となり、年間予算&#165;19,458千ベースの計画とは大きく乖離する。<br>
+&#8226; 8月以降の採用計画（内定30名）に必要な費用を月別に見積もり、超過が避けられないなら早期に補正を申請する。</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題2　202607の人件費確定実績が報告時点で未確定</div>
+<div class="cb">8/14時点で人件費の202607確定実績が予実差異シートに未入力のため、当月の人件費差異を報告できていない。6月分の「店舗振替控除の未反映（約&#9650;160万円）」も未解決のまま持ち越しとなっており、2ヶ月連続で差異要因が確定しない状態が続いている。</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策2　確定実績の締切を月次カレンダーに固定</div>
 <div class="cb">予実差異シートへの入力期限を「翌月10営業日以内」として関係者と合意し、月次カレンダーに固定する。あわせて6月分の店舗振替控除について、給与システム側での反映状況を今週中に確認し、結果を次回報告で必ず報告する。</div>
 </div>
 
 <div class="ic">
-<div class="ct">&#9888; 課題2　中途採用費が単月で予算比147.8%と超過</div>
-<div class="cb">7月の中途採用費は&#165;5,850千円（予算&#165;3,959千円）で予算比147.8%。うち特定技能&#165;1,350千円、中途（一般）&#165;4,500千円。累計では94.3%と予算内に収まっているものの、7&#12316;9月は月次予算が低く設定された期間であり、この水準が続くと下期に予算不足となる可能性がある。</div>
+<div class="ct">&#9888; 課題3　中途採用費は単月147.8%だが、累計では94.3%と予算内</div>
+<div class="cb">7月の中途採用費は&#165;5,850千（予算&#165;3,959千）で予算比147.8%。うち特定技能&#165;1,350千、中途（一般）&#165;4,500千。<strong>ただし4&#12316;7月の累計では94.3%と予算内</strong>で、超過の主因は月次の予算配分と採用活動のタイミングのズレ。実額としても前月比&#9660;22.0%（&#165;7,500千&#8594;&#165;5,850千）と減少している。<br><br>
+つまり<strong>採用費全体の超過はPA側が主因</strong>であり、中途採用費は現時点で問題ない。</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策2　月次予算配分の期中見直しを提案</div>
-<div class="cb">単月の予算超過が「予算配分と採用活動タイミングのズレ」であることを整理し、下期（10月以降）の月次配分を実際の採用計画に合わせて組み替える案を経理と協議する。あわせて、8月以降の採用見込み（内定30名）にかかる費用を月別に見積もり、年間着地の見通しを次回報告で提示する。</div>
+<div class="ct">&#10003; 対策3　下期の月次予算配分を実態に合わせて組み替える</div>
+<div class="cb">7&#12316;9月は月次予算が低く設定された期間であり、この水準が続くと下期に予算不足となる可能性がある。単月の超過が「予算配分と採用活動タイミングのズレ」であることを整理したうえで、10月以降の月次配分を実際の採用計画に合わせて組み替える案を経理と協議する。</div>
 </div>
 
 </div>
@@ -221,7 +253,7 @@ const REPORT_DATA = {
     <div class="card-title">カンテラ採用</div>
     <table><thead><tr><th></th><th>今期</th><th>前期</th><th>昨対</th></tr></thead>
     <tbody><tr><td>件数</td><td><strong>5名</strong></td><td>27名</td><td style="color:var(--negative);font-weight:700">18.5%</td></tr></tbody></table>
-    <div class="notice nb" style="margin-top:12px;font-size:12px">7月はカンテラ3名が入社。単月では今期最多で、回復の兆し。</div>
+    <div class="notice nb" style="margin-top:12px;font-size:12px">7月はカンテラ3名が入社（<strong>炭火2名、北陸1名</strong>）。単月では今期最多で、回復の兆し。</div>
   </div>
   <div class="card">
     <div class="card-title">リファラル採用</div>
@@ -263,7 +295,12 @@ const REPORT_DATA = {
 </section>
 
 <section>
-<div class="st">&#128202; 組織コンディション &#8213; アルバイトEIS</div>
+<details style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0;overflow:hidden">
+<summary style="cursor:pointer;padding:14px 18px;font-size:15px;font-weight:700;color:var(--primary);list-style:none;display:flex;align-items:center;gap:8px">
+  <span style="color:var(--accent)">&#9656;</span> &#128202; 組織コンディション &#8213; アルバイトEIS（総合 80.4pt ／ 前回比 +1.6pt）
+  <span style="margin-left:auto;font-size:11px;font-weight:400;color:var(--muted)">クリックで開く</span>
+</summary>
+<div style="padding:0 18px 18px">
 <div class="two">
   <div class="card">
     <div class="card-title">総合評価</div>
@@ -287,26 +324,8 @@ const REPORT_DATA = {
   </div>
 </div>
 <div class="notice nb" style="margin-top:14px">&#128204; <strong>人間関係83.4・成長・やりがい82.8・ルール82.5が高い一方、Q（クオリティ）自己評価76.1と環境77.7が相対的に低い。</strong>クオリティ自己評価の低さは、料理提供の遅延などお客様にご迷惑をおかけしている状況が現場で認識されている可能性を示す。環境項目（報酬満足度・意見が言える・環境改善への取り組み）は、意見を言える場・反映される場の設計が必要。</div>
-
-<div class="card" style="margin-top:14px">
-<div class="card-title">（参考）社員エンゲージメントサーベイ [eNPS]</div>
-<table>
-<thead><tr><th>事業</th><th>前回</th><th>今回</th><th>変化</th></tr></thead>
-<tbody>
-<tr><td>塚田農場グループ</td><td>-36.7%</td><td><strong>-40.0%</strong></td><td><span class="tag tag-red">やや悪化</span></td></tr>
-<tr><td>AP Re:US</td><td>-53.0%</td><td><strong>-59.3%</strong></td><td><span class="tag tag-red">やや悪化</span></td></tr>
-<tr><td>AP De-Light</td><td>-36.7%</td><td><strong>-22.0%</strong></td><td><span class="tag tag-green">大幅改善</span></td></tr>
-<tr><td>AP Over Drive</td><td>-32.1%</td><td><strong>-37.5%</strong></td><td><span class="tag tag-red">やや悪化</span></td></tr>
-<tr><td>E.T.</td><td>-36.7%</td><td><strong>-66.7%</strong></td><td><span class="tag tag-red">大幅悪化</span></td></tr>
-<tr><td>AP B.CUE</td><td>-65.0%</td><td><strong>-61.5%</strong></td><td><span class="tag tag-green">やや改善</span></td></tr>
-<tr><td>AP New Benefit</td><td>-32.1%</td><td><strong>-27.3%</strong></td><td><span class="tag tag-green">やや改善</span></td></tr>
-<tr><td>APスタンディングフーズ</td><td>-23.1%</td><td><strong>-10.0%</strong></td><td><span class="tag tag-green">大幅改善</span></td></tr>
-<tr><td>塚田農場プラス</td><td>-41.2%</td><td><strong>-41.9%</strong></td><td><span class="tag tag-yellow">横ばい</span></td></tr>
-<tr><td>本社</td><td>-34.7%</td><td><strong>-51.6%</strong></td><td><span class="tag tag-red">大幅悪化</span></td></tr>
-</tbody>
-</table>
-<div class="notice ny" style="margin-top:12px">&#9888;&#65039; <strong>E.T.（&#9660;30.0pt）と本社（&#9660;16.9pt）が大幅悪化。</strong>AP De-Light（+14.7pt）とAPスタンディングフーズ（+13.1pt）は大幅改善しており、事業間のばらつきが拡大している。悪化した2組織については個別のヒアリングが必要。</div>
 </div>
+</details>
 </section>
 
 <section>
@@ -348,59 +367,60 @@ const REPORT_DATA = {
       </tr>
       <tr style="border-top:2px solid var(--border);background:#f8faff">
         <td style="font-weight:700;color:var(--primary)">PA採用費 予算</td>
-        <td style="background:#e8f0fe">5,436</td><td style="background:#e8f0fe">4,837</td><td style="background:#e8f0fe;color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
-        <td style="background:#f0fdf4;color:var(--muted)">10,273</td>
+        <td style="background:#e8f0fe">4,591</td><td style="background:#e8f0fe">5,126</td><td style="background:#e8f0fe">2,695</td><td>1,675</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4;color:var(--muted)">14,087</td>
       </tr>
       <tr>
         <td style="font-weight:700;color:var(--primary)">PA採用費 実績</td>
-        <td style="background:#e8f0fe">6,396</td><td style="background:#e8f0fe">6,620</td><td style="background:#e8f0fe">5,763</td><td>4,002</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
-        <td style="background:#f0fdf4;font-weight:700">22,781</td>
+        <td style="background:#e8f0fe">6,350</td><td style="background:#e8f0fe">6,763</td><td style="background:#e8f0fe">5,800</td><td>4,003</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4;font-weight:700">22,916</td>
       </tr>
       <tr style="background:#fafff4">
         <td style="padding-left:1.2em;color:var(--muted)">予算比</td>
-        <td style="background:#e8f0fe"><span class="tag tag-red">117.7%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">136.9%</span></td><td style="background:#e8f0fe;color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
-        <td style="background:#f0fdf4;color:var(--muted)">—</td>
+        <td style="background:#e8f0fe"><span class="tag tag-red">138.3%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">131.9%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">215.2%</span></td><td><span class="tag tag-red">239.0%</span></td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#f0fdf4"><span class="tag tag-yellow">162.7%</span></td>
       </tr>
       <tr style="border-top:2px solid var(--border);background:#f0f4ff;font-weight:700">
         <td style="color:var(--primary)">合計予算</td>
-        <td style="background:#e8f0fe">14,495</td><td style="background:#e8f0fe">12,696</td><td style="background:#e8f0fe">8,159</td><td>3,959</td><td>4,709</td><td>6,209</td><td>6,659</td><td>5,459</td><td>2,050</td><td>5,459</td><td>7,709</td><td>6,959</td>
-        <td style="background:#d4edda">84,522</td>
+        <td style="background:#e8f0fe">13,650</td><td style="background:#e8f0fe">12,985</td><td style="background:#e8f0fe">10,854</td><td>5,634</td><td>4,709</td><td>6,209</td><td>6,659</td><td>5,459</td><td>2,050</td><td>5,459</td><td>7,709</td><td>6,959</td>
+        <td style="background:#d4edda">88,336</td>
       </tr>
       <tr style="background:#f0f4ff;font-weight:700">
         <td style="color:var(--primary)">合計実績</td>
-        <td style="background:#e8f0fe">13,386</td><td style="background:#e8f0fe">13,670</td><td style="background:#e8f0fe">13,263</td><td>9,852</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
-        <td style="background:#d4edda">50,171</td>
+        <td style="background:#e8f0fe">13,340</td><td style="background:#e8f0fe">13,813</td><td style="background:#e8f0fe">13,300</td><td>9,853</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#d4edda">50,306</td>
       </tr>
       <tr style="background:#f0f4ff">
         <td style="font-weight:700;color:var(--primary)">予算比</td>
-        <td style="background:#e8f0fe"><span class="tag tag-green">92.3%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">107.7%</span></td><td style="background:#e8f0fe;color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
-        <td style="background:#d4edda;color:var(--muted)">—</td>
+        <td style="background:#e8f0fe"><span class="tag tag-green">97.7%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">106.4%</span></td><td style="background:#e8f0fe"><span class="tag tag-red">122.5%</span></td><td><span class="tag tag-red">174.9%</span></td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td><td style="color:var(--muted)">—</td>
+        <td style="background:#d4edda"><span class="tag tag-green">56.9%</span></td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="notice nb" style="margin-top:12px">&#128204; <strong>集計元データの更新に伴い、4&#12316;6月の実績値を修正した。</strong>PA採用費（4月 &#165;5,582&#8594;&#165;6,396千円、5月 &#165;5,501&#8594;&#165;6,620千円、6月 &#165;4,832&#8594;&#165;5,763千円）および特定技能（4月 &#165;2,250&#8594;&#165;2,340千円）。PA予算は現時点で4・5月分のみ設定されているため、6月以降の予算比および合計欄の予算比は「&#8212;」表示としている。</div>
+<div class="notice nr" style="margin-top:12px">&#128204; <strong>PA採用費の予算が4&#12316;7月の全月で設定されたため、今回から予算比を表示している。結果は4月138.3%・5月131.9%・6月215.2%・7月239.0%と全月で予算を超過し、累計では162.7%（予算&#165;14,088千に対し実績&#165;22,916千）。</strong>中途採用費が累計94.3%と予算内であるのに対し、採用費全体の超過（合計 単月174.9%）はPA側が主因であることが明確になった（課題4）。<br>
+<span style="color:var(--muted)">※数値は★組織別課題タブの「■採用費用」サマリ表に合わせて、4&#12316;6月の実績も更新している（PA 4月&#165;6,350千・5月&#165;6,763千・6月&#165;5,800千、特定技能4月&#165;2,340千）。累計欄の予算は中途が年間フル予算、PAは設定済みの4&#12316;7月分。</span></div>
 <div class="three" style="margin-top:14px">
   <div class="card" style="text-align:center">
     <div class="card-title">5月 PA採用単価</div>
-    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">&#165;37,401</div>
-    <div style="font-size:13px;color:var(--muted)">採用費&#165;6,620千 ÷ 入社177名</div>
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">&#165;38,209</div>
+    <div style="font-size:13px;color:var(--muted)">採用費&#165;6,763千 ÷ 入社177名</div>
   </div>
   <div class="card" style="text-align:center">
     <div class="card-title">6月 PA採用単価</div>
-    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">&#165;33,121</div>
-    <div style="font-size:13px;color:var(--muted)">採用費&#165;5,763千 ÷ 入社174名</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--positive)">&#9660; 前月比 -11.4%</div>
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:var(--primary)">&#165;33,333</div>
+    <div style="font-size:13px;color:var(--muted)">採用費&#165;5,800千 ÷ 入社174名</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--positive)">&#9660; 前月比 -12.8%</div>
   </div>
   <div class="card" style="text-align:center">
     <div class="card-title">7月 PA採用単価</div>
-    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:#2d9e5f">&#165;26,680</div>
-    <div style="font-size:13px;color:var(--muted)">採用費&#165;4,002千 ÷ 入社150名</div>
-    <div style="font-size:13px;margin-top:4px;color:var(--positive)">&#9660; 前月比 -19.4%</div>
+    <div style="font-size:28px;font-weight:800;margin-bottom:6px;color:#2d9e5f">&#165;26,687</div>
+    <div style="font-size:13px;color:var(--muted)">採用費&#165;4,003千 ÷ 入社150名</div>
+    <div style="font-size:13px;margin-top:4px;color:var(--positive)">&#9660; 前月比 -19.9%</div>
   </div>
 </div>
-<div class="notice ng" style="margin-top:12px">&#128204; <strong>PA採用単価は3ヶ月連続で改善（&#165;37,401 &#8594; &#165;33,121 &#8594; &#165;26,680）。</strong>採用費を抑えながら入社150名を確保できており、費用効率は明確に向上している。<span style="color:var(--muted)">※採用単価は「当月のPA採用費 ÷ 当月のPA入社数」で算出した参考値。</span></div>
+<div class="notice ny" style="margin-top:12px">&#128204; <strong>PA採用単価は3ヶ月連続で改善（&#165;38,209 &#8594; &#165;33,333 &#8594; &#165;26,687）。</strong>採用費を抑えながら入社150名を確保できており、1名あたりの効率は明確に向上している。<strong>ただし予算比では7月239.0%と大幅超過</strong>で、「単価は下がっているが、採用人数が多いため総額が予算を超えている」構造。予算そのものが採用計画と整合しているかの確認が必要（課題4）。<span style="color:var(--muted)">※採用単価は「当月のPA採用費 ÷ 当月のPA入社数」で算出した参考値。</span></div>
 </section>
 
 <section>
@@ -435,14 +455,18 @@ const REPORT_DATA = {
 </div>
 
 <div class="ic">
-<div class="ct">&#9888; 課題4　eNPSの事業間ばらつきが拡大 &#8213; E.T.・本社が大幅悪化</div>
-<div class="cb">アルバイトEISは80.4ptと平均超えまで改善した一方、社員のeNPSは<strong>E.T.が&#9660;30.0pt（-36.7%&#8594;-66.7%）、本社が&#9660;16.9pt（-34.7%&#8594;-51.6%）と大幅悪化</strong>。逆にAP De-Light（+14.7pt）・APスタンディングフーズ（+13.1pt）は大幅改善しており、全社平均では見えない事業間格差が広がっている。</div>
+<div class="ct">&#9888; 課題4　PA採用費が全月で予算超過 ― 7月239.0%、累計162.7%</div>
+<div class="cb">
+PA採用費の予算が4&#12316;7月の全月で設定され、初めて予実比較ができるようになった結果、<strong>4月138.3%・5月131.9%・6月215.2%・7月239.0%と全月で予算を超過</strong>していることが判明。累計では予算&#165;14,088千に対し実績&#165;22,916千（<strong>162.7%</strong>）。<br><br>
+一方でPA採用単価は&#165;38,209&#8594;&#165;33,333&#8594;&#165;26,687と3ヶ月連続で改善しており、<strong>「1名あたりのコストは下がっているが、採用人数（7月150名）が多いため総額が予算を超える」構造</strong>。PA離職の改善（課題3）と在籍+56名は、この採用投下の結果でもある。中途採用費が累計94.3%と予算内であることを踏まえると、採用費全体の超過はPA側が主因。
+</div>
 </div>
 <div class="ac">
-<div class="ct">&#10003; 対策4　悪化2組織への個別ヒアリングと、改善2組織の要因横展開</div>
-<div class="cb">E.T.・本社の2組織について、スコアが悪化した設問（特に「環境」「教育」領域）を特定したうえで、事業部長同席の個別ヒアリングを実施する。あわせて、大幅改善したAP De-Light・APスタンディングフーズで実施していた施策を洗い出し、横展開できる取り組みを次回報告で提案する。</div>
-</div>
-
+<div class="ct">&#10003; 対策4　予算の前提を確認し、「必要な超過」か「抑えるべき超過」かを切り分ける</div>
+<div class="cb">
+&#8226; <strong>PA採用費予算の前提となる採用人数を確認する。</strong>予算&#165;14,088千 ÷ 実績単価&#165;30,000前後 = 約470名分に対し、4&#12316;7月の実績入社は約780名。<strong>予算が想定する採用人数と、現場が必要としている人数が合っていない可能性が高い。</strong>まずここを確認する。<br>
+&#8226; <strong>離職率との合わせ技で評価する。</strong>PA離職の年間着地予測が58.8%&#8594;54.3%に改善しているのは採用が追いついているためでもある。採用費だけを削ると欠員が発生し、現場負荷&#8594;離職増という悪循環になりかねない。<strong>「採用費を抑える」ではなく「離職を減らして必要採用数そのものを減らす」を主軸に置く。</strong><br>
+&#8226; 上記を整理したうえで、予算の期中補正を申請するか、下期の採用計画を絞るかを次回報告で提案する。
 </div>
 </section>
 

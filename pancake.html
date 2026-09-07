@@ -122,6 +122,440 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 
 <script>
 const REPORT_DATA = {
+  '2026-08': {
+    label: '2026年8月',
+    reportDate: '2026年9月7日',
+    fujisan: `<main>
+
+<section>
+<div class="notice nb" style="margin-bottom:14px">&#128204; <strong>8月はPOS移行月です。</strong>8/1〜8/4はスマレジ、8/5〜8/31はDinii。売上KPIは<strong>「スマレジ日別売上（8/1〜4）＋Dinii日別売上（8/5〜31）」</strong>。
+金額はすべて<strong>税抜</strong>、客単価のみ税込を併記しています。<span style="color:var(--muted)">※Diniiの「オプション別」CSVの金額は商品売上の内訳であり、加算すると二重計上になります（後述「データ定義の検証」で実証）。</span></div>
+<div class="st">&#128200; 主要KPI（前年同月比）</div>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kl">純売上（税抜）</div><div class="kv">&#165;9,183,471</div><div class="ks">前年：&#165;7,284,488</div><div class="ky">&#9650; +26.1%</div><div class="ks" style="margin-top:8px;opacity:.55">税込 &#165;10,101,818（前年 &#165;8,012,937）</div></div>
+  <div class="kpi"><div class="kl">客数</div><div class="kv">4,944人</div><div class="ks">前年：4,305人</div><div class="ky">&#9650; +14.8%</div><div class="ks" style="margin-top:8px;opacity:.55">1日平均 159.5人（前年 138.9人）</div></div>
+  <div class="kpi"><div class="kl">客単価（税抜）</div><div class="kv">&#165;1,858</div><div class="ks">前年：&#165;1,692</div><div class="ky">&#9650; +9.8%</div><div class="ks" style="margin-top:8px;opacity:.55">税込 &#165;2,043（前年 &#165;1,861）</div></div>
+  <div class="kpi"><div class="kl">増収額（税抜）</div><div class="kv">+&#165;1,898,983</div><div class="ks">単月として過去最高水準</div><div class="ky">&#9650; 前年比 +26.1%</div></div>
+  <div class="kpi"><div class="kl">販売点数<span style="font-weight:400">（提供ベース）</span></div><div class="kv">9,343点</div><div class="ks">前年：7,116点</div><div class="ky">&#9650; +31.3%</div><div class="ks" style="margin-top:8px;opacity:.55">商品5,411＋オプション2,929＋スマレジ1,003。スマレジが独立SKUで計上していたセットドリンク等を点数に含めた比較可能ベース</div></div>
+  <div class="kpi kpi-yellow"><div class="kl">取引数（組数）</div><div class="kv">取得不可</div><div class="ks">Diniiの日別エクスポートに組数の項目がないため、8月は前年比較不可</div></div>
+</div>
+<div class="notice ng" style="margin-top:14px">&#128204; <strong>8月は前年比+26.1%・前月比+71.6%と、単月売上・客数ともに過去最高水準を更新。</strong>
+7月レポートで「8月の最需要期は週末キャパの制約で取りこぼしが出るリスクがある」と指摘したが、<strong>実際には客数210人超の日が7日（前年3日）、最大281人（前年249人）と前年の上限を大きく超えて受け入れられた</strong>。キャパ制約は想定より緩かったと判断する。<br>
+<strong>客単価+9.8%は、値上げによるものではない。</strong>後述のとおり、オプション（セットドリンク・トッピング・ライス&amp;スープ・大盛り）の付帯が増えたことが主因である。</div>
+</section>
+
+<section>
+<div class="st">&#127881; 前年比・前月比サマリ</div>
+<div class="gw-grid">
+  <div class="ib"><div class="lb">前年同月比（2025年8月 &#8594; 2026年8月）</div><div class="vl">&#9650; +26.1%</div><div class="sb">純売上（税抜）&#165;7,284,488 &#8594; &#165;9,183,471 ／ 客数+14.8% 客単価+9.8%</div></div>
+  <div class="ib"><div class="lb">前月比（2026年7月 &#8594; 8月）</div><div class="vl">&#9650; +71.6%</div><div class="sb">純売上（税抜）&#165;5,350,752 &#8594; &#165;9,183,471 ／ 客数+66.7% 客単価+3.0%</div></div>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>期間別の内訳（前年同月比）</h3>
+<table>
+<thead><tr><th>期間</th><th>2026年8月<br><span style="font-size:10px;font-weight:400;text-transform:none">税抜</span></th><th>2025年8月</th><th>売上 前年比</th><th>客数 26/25</th><th>客数 前年比</th></tr></thead>
+<tbody>
+<tr><td>上旬（8/1〜8/7）</td><td>&#165;1,823,976</td><td>&#165;1,416,763</td><td style="color:#2d9e5f;font-weight:700">&#9650;+28.7%</td><td>988 / 821人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+20.3%</td></tr>
+<tr><td>お盆期（8/8〜8/17）</td><td>&#165;4,134,608</td><td>&#165;3,230,582</td><td style="color:#2d9e5f;font-weight:700">&#9650;+28.0%</td><td>2,199 / 1,888人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+16.5%</td></tr>
+<tr><td>下旬（8/18〜8/31）</td><td>&#165;3,224,887</td><td>&#165;2,637,143</td><td style="color:#2d9e5f;font-weight:700">&#9650;+22.3%</td><td>1,757 / 1,596人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+10.1%</td></tr>
+</tbody>
+</table>
+<div class="notice nb" style="margin-top:12px">&#128204; <strong>3期間すべてで前年を上回ったが、伸び率は上旬+28.7% &#8594; お盆+28.0% &#8594; 下旬+22.3%と月内で逓減。</strong>特に下旬は客数の伸びが+10.1%まで鈍化しており、売上増の約半分が客単価の上昇によるもの。学校再開後の平日集客が次の課題（課題2）。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128197; 日別売上推移（2026年8月 vs 2025年8月）</div>
+<div class="card"><svg viewBox="0 0 900 270 " xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+<line x1="55" y1="235.0" x2="890" y2="235.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="238.0" text-anchor="end" font-size="10" fill="#9ca3af">0万</text>
+<line x1="55" y1="197.2" x2="890" y2="197.2" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="200.2" text-anchor="end" font-size="10" fill="#9ca3af">10万</text>
+<line x1="55" y1="159.3" x2="890" y2="159.3" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="162.3" text-anchor="end" font-size="10" fill="#9ca3af">20万</text>
+<line x1="55" y1="121.5" x2="890" y2="121.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="124.5" text-anchor="end" font-size="10" fill="#9ca3af">30万</text>
+<line x1="55" y1="83.7" x2="890" y2="83.7" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="86.7" text-anchor="end" font-size="10" fill="#9ca3af">40万</text>
+<line x1="55" y1="45.8" x2="890" y2="45.8" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="48.8" text-anchor="end" font-size="10" fill="#9ca3af">50万</text>
+<line x1="55" y1="8.0" x2="890" y2="8.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="52" y="11.0" text-anchor="end" font-size="10" fill="#9ca3af">60万</text>
+<rect x="62.8" y="123.4" width="11.3" height="111.6" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="89.8" y="103.9" width="11.3" height="131.1" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="116.7" y="161.6" width="11.3" height="73.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="143.6" y="152.3" width="11.3" height="82.7" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="170.6" y="130.9" width="11.3" height="104.1" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="197.5" y="120.9" width="11.3" height="114.1" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="224.4" y="162.0" width="11.3" height="73.0" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="251.4" y="129.3" width="11.3" height="105.7" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="278.3" y="80.1" width="11.3" height="154.9" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="305.2" y="72.6" width="11.3" height="162.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="332.2" y="44.7" width="11.3" height="190.3" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="359.1" y="41.7" width="11.3" height="193.3" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="386.0" y="59.6" width="11.3" height="175.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="413.0" y="59.7" width="11.3" height="175.3" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="439.9" y="65.9" width="11.3" height="169.1" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="466.9" y="107.3" width="11.3" height="127.7" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="493.8" y="124.8" width="11.3" height="110.2" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="520.7" y="142.2" width="11.3" height="92.8" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="547.7" y="165.3" width="11.3" height="69.7" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="574.6" y="179.2" width="11.3" height="55.8" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="601.5" y="155.5" width="11.3" height="79.5" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="628.5" y="133.7" width="11.3" height="101.3" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="655.4" y="101.6" width="11.3" height="133.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="682.3" y="149.6" width="11.3" height="85.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="709.3" y="130.2" width="11.3" height="104.8" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="736.2" y="153.0" width="11.3" height="82.0" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="763.1" y="143.7" width="11.3" height="91.3" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="790.1" y="170.2" width="11.3" height="64.8" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="817.0" y="121.8" width="11.3" height="113.2" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="843.9" y="132.6" width="11.3" height="102.4" fill="#e85d04" opacity="0.85" rx="2"/>
+<rect x="870.9" y="191.4" width="11.3" height="43.6" fill="#e85d04" opacity="0.85" rx="2"/>
+<polygon points="68.5,235.0 68.5,170.0 95.4,147.8 122.3,127.1 149.3,163.6 176.2,147.0 203.1,168.2 230.1,185.4 257.0,178.9 284.0,131.3 310.9,98.0 337.8,81.2 364.8,91.0 391.7,97.0 418.6,99.2 445.6,101.4 472.5,95.4 499.4,154.4 526.4,161.3 553.3,161.7 580.2,165.0 607.2,190.6 634.1,169.4 661.0,165.1 688.0,144.6 714.9,164.9 741.9,179.6 768.8,168.0 795.7,163.6 822.7,173.9 849.6,148.9 876.5,135.7 876.5,235.0" fill="#2c5282" opacity="0.1"/>
+<polyline points="68.5,170.0 95.4,147.8 122.3,127.1 149.3,163.6 176.2,147.0 203.1,168.2 230.1,185.4 257.0,178.9 284.0,131.3 310.9,98.0 337.8,81.2 364.8,91.0 391.7,97.0 418.6,99.2 445.6,101.4 472.5,95.4 499.4,154.4 526.4,161.3 553.3,161.7 580.2,165.0 607.2,190.6 634.1,169.4 661.0,165.1 688.0,144.6 714.9,164.9 741.9,179.6 768.8,168.0 795.7,163.6 822.7,173.9 849.6,148.9 876.5,135.7" fill="none" stroke="#2c5282" stroke-width="1.8" opacity="0.75"/>
+<rect x="55" y="8" width="99.9" height="227.0" fill="#1a3a5c" opacity="0.05"/>
+<text x="102.1" y="20" text-anchor="middle" font-size="9" fill="#6b7280">スマレジ</text>
+<text x="257.0" y="20" text-anchor="middle" font-size="9" fill="#6b7280">Dinii（8/5〜）</text>
+<text x="68.5" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">1日</text>
+<text x="203.1" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">6日</text>
+<text x="337.8" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">11日</text>
+<text x="472.5" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">16日</text>
+<text x="607.2" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">21日</text>
+<text x="741.9" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">26日</text>
+<text x="876.5" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">31日</text>
+<text x="876.5" y="267" text-anchor="middle" font-size="9" fill="#9ca3af">31日</text>
+<rect x="55" y="6" width="9" height="9" fill="#e85d04" opacity="0.85" rx="2"/><text x="67" y="14" font-size="10" fill="#6b7280">2026年8月</text>
+<rect x="130" y="6" width="9" height="9" fill="#2c5282" opacity="0.65" rx="2"/><text x="142" y="14" font-size="10" fill="#6b7280">2025年8月</text>
+</svg>
+<div class="notice nb" style="margin-top:12px">&#128204; 月間最高は<strong>8/12（水）&#165;510,916</strong>、次いで8/11（火・山の日）&#165;503,038、8/13（木）&#165;463,484。<strong>客数の最高は8/13（木）281人</strong>で、前年最高の8/11（月）249人を32人上回った。
+一方、月末の<strong>8/31（月）は&#165;115,360・客数66人と月内最低</strong>。8/20（木）79人、8/28（金）88人と、下旬の平日に落ち込む日が散見される。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128198; 曜日別 平均売上（前年比）</div>
+<div class="card"><svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+<line x1="48" y1="202.0" x2="670" y2="202.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45" y="205.0" text-anchor="end" font-size="10" fill="#9ca3af">0万</text>
+<line x1="48" y1="156.5" x2="670" y2="156.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45" y="159.5" text-anchor="end" font-size="10" fill="#9ca3af">10万</text>
+<line x1="48" y1="111.0" x2="670" y2="111.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45" y="114.0" text-anchor="end" font-size="10" fill="#9ca3af">20万</text>
+<line x1="48" y1="65.5" x2="670" y2="65.5" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45" y="68.5" text-anchor="end" font-size="10" fill="#9ca3af">30万</text>
+<line x1="48" y1="20.0" x2="670" y2="20.0" stroke="#e5e7eb" stroke-width="1"/>
+<text x="45" y="23.0" text-anchor="end" font-size="10" fill="#9ca3af">40万</text>
+<rect x="62.0" y="87.7" width="29.3" height="114.3" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="93.3" y="91.0" width="29.3" height="111.0" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="91.3" y="83.7" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+3%</text>
+<text x="91.3" y="226" text-anchor="middle" font-size="12" fill="#374151">月</text>
+<rect x="150.8" y="60.5" width="29.3" height="141.5" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="182.2" y="93.5" width="29.3" height="108.5" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="180.2" y="56.5" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+30%</text>
+<text x="180.2" y="226" text-anchor="middle" font-size="12" fill="#374151">火</text>
+<rect x="239.7" y="67.0" width="29.3" height="135.0" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="271.0" y="99.2" width="29.3" height="102.8" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="269.0" y="63.0" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+31%</text>
+<text x="269.0" y="226" text-anchor="middle" font-size="12" fill="#374151">水</text>
+<rect x="328.5" y="70.7" width="29.3" height="131.3" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="359.8" y="111.4" width="29.3" height="90.6" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="357.8" y="66.7" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+45%</text>
+<text x="357.8" y="226" text-anchor="middle" font-size="12" fill="#374151">木</text>
+<rect x="417.4" y="84.0" width="29.3" height="118.0" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="448.7" y="110.3" width="29.3" height="91.7" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="446.7" y="80.0" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+29%</text>
+<text x="446.7" y="226" text-anchor="middle" font-size="12" fill="#374151">金</text>
+<rect x="506.2" y="57.4" width="29.3" height="144.6" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="537.5" y="85.0" width="29.3" height="117.0" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="535.5" y="53.4" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+24%</text>
+<text x="535.5" y="226" text-anchor="middle" font-size="12" fill="#374151">土</text>
+<rect x="595.1" y="45.8" width="29.3" height="156.2" fill="#e85d04" opacity="0.85" rx="3"/>
+<rect x="626.4" y="78.1" width="29.3" height="123.9" fill="#2c5282" opacity="0.65" rx="3"/>
+<text x="624.4" y="41.8" text-anchor="middle" font-size="9" fill="#059669" font-weight="700">+26%</text>
+<text x="624.4" y="226" text-anchor="middle" font-size="12" fill="#374151">日</text>
+<rect x="48" y="6" width="9" height="9" fill="#e85d04" opacity="0.85" rx="2"/><text x="60" y="14" font-size="10" fill="#6b7280">2026</text>
+<rect x="96" y="6" width="9" height="9" fill="#2c5282" opacity="0.65" rx="2"/><text x="108" y="14" font-size="10" fill="#6b7280">2025</text>
+</svg>
+<div class="notice ny" style="margin-top:12px">&#9888;&#65039; <strong>この曜日別比較は、祝日の位置がズレているため単純比較できない。</strong>山の日は<strong>2025年は8/11（月）</strong>、<strong>2026年は8/11（火）</strong>。前年の月曜平均には祝日（249人・&#165;406,630）が含まれ、今年は火曜に入っている。月+3.0%／火+30.4%という差の大部分はこの祝日移動による。</div>
+<div class="notice nb" style="margin-top:10px">&#128204; <strong>そこでお盆期（8/8〜8/17）を除いた「通常期」で、曜日ごとに同じ日数（各3日ずつ）を揃えて比較した。</strong></div>
+<table style="margin-top:10px">
+<thead><tr><th>曜日</th><th>2026 平均売上<br><span style="font-size:10px;font-weight:400;text-transform:none">税抜</span></th><th>2025 平均売上</th><th>売上 前年比</th><th>2026 平均客数</th><th>2025 平均客数</th><th>客数 前年比</th></tr></thead>
+<tbody>
+<tr style="background:#fef2f2"><td><strong>月</strong></td><td>&#165;178,367</td><td>&#165;189,630</td><td style="color:#d62828;font-weight:700">&#9660;-5.9%</td><td>101.0人</td><td>114.3人</td><td style="color:#d62828;font-weight:700">&#9660;-11.7%</td></tr>
+<tr><td>火</td><td>&#165;246,889</td><td>&#165;190,946</td><td style="color:#2d9e5f;font-weight:700">&#9650;+29.3%</td><td>132.0人</td><td>110.3人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+19.6%</td></tr>
+<tr><td>水</td><td>&#165;225,415</td><td>&#165;179,523</td><td style="color:#2d9e5f;font-weight:700">&#9650;+25.6%</td><td>120.7人</td><td>109.7人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+10.0%</td></tr>
+<tr><td>木</td><td>&#165;230,167</td><td>&#165;145,712</td><td style="color:#2d9e5f;font-weight:700">&#9650;+58.0%</td><td>120.7人</td><td>90.0人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+34.1%</td></tr>
+<tr><td>金</td><td>&#165;191,482</td><td>&#165;168,935</td><td style="color:#2d9e5f;font-weight:700">&#9650;+13.3%</td><td>109.0人</td><td>96.7人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+12.8%</td></tr>
+<tr><td>土</td><td>&#165;287,355</td><td>&#165;214,297</td><td style="color:#2d9e5f;font-weight:700">&#9650;+34.1%</td><td>157.0人</td><td>125.3人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+25.3%</td></tr>
+<tr><td>日</td><td>&#165;323,279</td><td>&#165;262,259</td><td style="color:#2d9e5f;font-weight:700">&#9650;+23.3%</td><td>174.7人</td><td>159.3人</td><td style="color:#2d9e5f;font-weight:700">&#9650;+9.6%</td></tr>
+</tbody>
+</table>
+<div class="notice nr" style="margin-top:12px">&#9888;&#65039; <strong>祝日要因を除いても、月曜だけが前年割れ（売上&#9660;5.9%・客数&#9660;11.7%）。</strong>他の6曜日はすべて客数プラスで、月曜のみが例外。明細は8/3=118人、8/24=119人、8/31=66人（前年は8/4=115人、8/18=126人、8/25=102人）。<strong>特に8/31の66人は月内最低で、前年同週の月曜102人を大きく下回る。</strong>課題2で扱う。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128269; データ定義の検証 &#8213; 「主力商品が値上げされた」ように見える理由</div>
+<div class="card">
+<div class="notice nb" style="margin-bottom:12px">&#128204; Diniiの商品別データを7月（スマレジ）と並べると、<strong>主力商品の平均単価が+9〜22%上がって見える。</strong>価格改定は7月時点で実施済みであり、8月の値上げは行っていない。<strong>この差が何なのかを検証した。</strong></div>
+
+<div class="ct" style="color:#1a3a5c;margin-bottom:8px">検証方法：「8月に価格改定がなかった場合の理論値」と実績を突き合わせる</div>
+<div class="three" style="margin-bottom:14px">
+  <div class="ib"><div class="lb">&#9312; Dinii商品別の実績（8/4〜31・同一SKU41品）</div><div class="vl">&#165;7,766,910</div><div class="sb">税抜</div></div>
+  <div class="ib"><div class="lb">&#9313; 7月スマレジ単価 × 8月Dinii出数</div><div class="vl">&#165;6,993,201</div><div class="sb">価格改定がなかった場合の理論値</div></div>
+  <div class="hb"><div class="lb">差（&#9312;&#8722;&#9313;）</div><div class="vl">&#165;773,709</div><div class="sb">オプション別CSVの合計 &#165;762,800 とほぼ一致（差1.4%）</div></div>
+</div>
+<div class="notice ng">&#128204; <strong>結論：値上げではない。Diniiの「商品別 売上合計」には、その商品に紐づくオプション代（セットドリンク・トッピング・ライス&amp;スープ・大盛り）がすでに合算されている。</strong>「オプション別」CSVは、その内訳を切り出したビューであり、<strong>商品別に足すと二重計上になる。</strong></div>
+
+<div class="ct" style="color:#1a3a5c;margin:20px 0 8px">裏づけ：オプションが付かない商品は、差がゼロ</div>
+<table>
+<thead><tr><th>商品</th><th>オプション</th><th>8月実績</th><th>理論値<br><span style="font-size:10px;font-weight:400;text-transform:none">7月単価×8月出数</span></th><th>差（1点あたり）</th></tr></thead>
+<tbody>
+<tr style="background:#f0fdf4"><td>フライドポテト</td><td>なし</td><td>&#165;29,240</td><td>&#165;29,240</td><td style="color:#2d9e5f;font-weight:700">&#177;0円</td></tr>
+<tr style="background:#f0fdf4"><td>オニオンリング</td><td>なし</td><td>&#165;19,720</td><td>&#165;19,720</td><td style="color:#2d9e5f;font-weight:700">&#177;0円</td></tr>
+<tr style="background:#f0fdf4"><td>フライドチキン(1P)</td><td>なし</td><td>&#165;16,500</td><td>&#165;16,500</td><td style="color:#2d9e5f;font-weight:700">&#177;0円</td></tr>
+<tr style="background:#f0fdf4"><td>食後のミニパンケーキセット</td><td>なし</td><td>&#165;87,250</td><td>&#165;86,644</td><td style="color:#2d9e5f;font-weight:700">+2円</td></tr>
+<tr style="background:#f0fdf4"><td>お絵描きパンケーキ</td><td>なし</td><td>&#165;145,040</td><td>&#165;144,436</td><td style="color:#2d9e5f;font-weight:700">+4円</td></tr>
+<tr><td>釜焼マルゲリータピッツァ</td><td>ドリンク</td><td>&#165;320,560</td><td>&#165;294,036</td><td style="color:#d62828;font-weight:700">+124円</td></tr>
+<tr><td>彩り野菜カレー</td><td>ドリンク・ライス</td><td>&#165;359,900</td><td>&#165;330,041</td><td style="color:#d62828;font-weight:700">+152円</td></tr>
+<tr><td>ビーフシチューオムライス</td><td>ドリンク・大盛り</td><td>&#165;625,700</td><td>&#165;561,606</td><td style="color:#d62828;font-weight:700">+168円</td></tr>
+<tr><td>富士山パンケーキ 3枚</td><td>ドリンク・トッピング</td><td>&#165;775,170</td><td>&#165;671,971</td><td style="color:#d62828;font-weight:700">+226円</td></tr>
+<tr><td>白桃丸ごとパンケーキ3枚</td><td>ドリンク・トッピング</td><td>&#165;570,710</td><td>&#165;516,706</td><td style="color:#d62828;font-weight:700">+269円</td></tr>
+<tr><td>窯焼パリパリチキンステーキ</td><td>ドリンク・ライス&amp;スープ</td><td>&#165;287,820</td><td>&#165;235,320</td><td style="color:#d62828;font-weight:700">+330円</td></tr>
+</tbody>
+</table>
+<div class="notice ny" style="margin-top:12px">&#9888;&#65039; <strong>オプションが設定されていない商品は、7月と8月で1円単位まで一致する。</strong>差が出るのはオプションが付く商品だけで、しかも差額はオプション代の水準（ドリンク&#165;341／ライス&amp;スープ&#165;292／トッピング&#165;172）と整合する。<br>
+<strong>つまりDiniiの「単価」はメニュー価格ではなく、オプション込みの平均客単価である。</strong>メニュー価格の推移を見るときにこの列を使ってはいけない。</div>
+<div class="notice nb" style="margin-top:10px">&#128204; <strong>この結果、8月の売上は&#165;9,183,471で確定。</strong>「オプション売上&#165;762,800が抜けているのではないか」という懸念は否定された。客単価+9.8%（前年比）は<strong>オプション付帯の増加によるもの</strong>で、次のセクションで実額を確認する。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#9989; オプション設計変更の効果検証</div>
+<div class="notice nb" style="margin-bottom:14px">&#128204; 8月のDinii移行にあわせて、<strong>&#9312;トッピング・大盛り等のオプション選択の設計変更 &#9313;「ドリンクセットを見せる」方式から「単品＋ドリンク選択（またはドリンクなし）」への一本化 &#9314;彩り野菜カレーの見せ方変更</strong>を実施している。それぞれの効果を、<strong>客数あたりの出数</strong>（客数の増加で膨らまない指標）で検証した。</div>
+
+<div class="card">
+<div class="ct" style="color:#2d9e5f;margin-bottom:10px">&#9312; オプション選択の設計変更 &#8213; 狙いどおり、大幅に増加</div>
+<table>
+<thead><tr><th>オプション</th><th>7月 出数</th><th>客数あたり</th><th>8月 出数</th><th>客数あたり</th><th>客数あたり 前月比</th></tr></thead>
+<tbody>
+<tr><td>トッピング追加（アイス・生クリーム・チョコソース等）</td><td>147点</td><td>5.0%</td><td>300点</td><td>6.1%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+22%</td></tr>
+<tr><td>ライス&amp;スープ／ランチセット</td><td>119点</td><td>4.0%</td><td>580点</td><td>11.7%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+192%</td></tr>
+<tr><td>大盛り変更</td><td>4点</td><td>0.13%</td><td>120点</td><td>2.43%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+18倍</td></tr>
+<tr style="font-weight:700;background:#f0fdf4"><td>合計</td><td>270点</td><td>9.1%</td><td>1,000点</td><td>20.2%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+122%</td></tr>
+</tbody>
+</table>
+<div class="notice ng" style="margin-top:12px">&#128204; <strong>客数あたりのオプション付帯が9.1%&#8594;20.2%と2.2倍。</strong>売上インパクトは<strong>トッピング&#165;50,200＋ライス&amp;スープ&#165;37,720＋大盛り&#165;18,000＝&#165;105,920（8/4〜31・税抜）</strong>。
+特に<strong>大盛り変更は7月の4点から120点へ</strong>。7月まではステーキの「ライス＆スープ」など一部が独立SKUで、他は選択肢として出ていなかったが、<strong>全商品でオプションとして提示する設計に変えたことで確実に拾えるようになった。</strong>この施策は継続・横展開すべき。</div>
+</div>
+
+<div class="card" style="margin-top:14px">
+<div class="ct" style="color:#2d9e5f;margin-bottom:10px">&#9313; ドリンクを「単品＋ドリンク選択」に一本化 &#8213; 「ドリンクなし」は増えず、付帯率はむしろ上昇</div>
+<div class="notice ny" style="margin-bottom:12px">&#9888;&#65039; <strong>仮説：「ドリンクなし」を選ばれる確率が上がったのではないか &#8594; データ上は逆で、付帯率は上がっている。</strong></div>
+<table>
+<thead><tr><th>指標</th><th>2026年7月（スマレジ）</th><th>2026年8月</th><th>差</th></tr></thead>
+<tbody>
+<tr><td><strong>客数あたりのドリンク提供数</strong></td><td>1,542点 / 2,966人 = <strong>52.0%</strong></td><td>3,078点 / 4,944人 = <strong>62.3%</strong></td><td style="color:#2d9e5f;font-weight:700">&#9650;+10.3pt</td></tr>
+<tr><td>主菜1点あたりのセットドリンク付帯</td><td>1,333点 / 2,484点 = 53.7%</td><td>2,388回 / 4,201点 = 56.8%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+3.1pt</td></tr>
+<tr><td>セットドリンクの平均単価（税抜）</td><td>&#165;334</td><td>&#165;341</td><td style="color:#2d9e5f;font-weight:700">&#9650;+2.1%</td></tr>
+<tr style="background:#fffbeb"><td>「ドリンク選択」が提示された回数<br><span style="font-size:11px;color:var(--muted)">うち「ドリンクなし（パンケーキのみ）」</span></td><td>—<br><span style="font-size:11px;color:var(--muted)">計測不可</span></td><td>3,627回<br><span style="font-size:11px;color:var(--muted)"><strong>1,239回＝34.2%</strong></span></td><td>新規に可視化</td></tr>
+</tbody>
+</table>
+<div class="notice ng" style="margin-top:12px">&#128204; <strong>一本化はプラスに働いた。</strong>客数あたりのドリンク提供数は52.0%&#8594;62.3%と10ポイント上昇。「ドリンクなしを選ばれやすくなったのでは」という懸念は、<strong>少なくとも8月のデータでは確認できない。</strong>
+「ドリンクなし」34.2%という数字は<strong>従来まったく見えていなかった値</strong>で、比較対象がないため「増えた」とは判定できないが、<strong>これ自体が新しい打ち手の的（＝1,239人分の伸びしろ）になる。</strong></div>
+<div class="notice ny" style="margin-top:10px">&#9888;&#65039; <strong>ただし1点、確認が必要。</strong>「ドリンク選択」が提示されたのは3,627回で、Diniiの主菜出数4,201点の<strong>86%</strong>。<strong>残り574点（14%）にはドリンク選択が表示されていない。</strong>どの商品で選択肢が出ていないのかを確認し、意図的でなければメニュー設定を修正すれば、そのまま付帯率が上がる。</div>
+</div>
+
+<div class="card" style="margin-top:14px">
+<div class="ct" style="color:#f59e0b;margin-bottom:10px">&#9314; 彩り野菜カレーの見せ方変更 &#8213; 増えているが、カレー全体が伸びており固有効果は分離できない</div>
+<table>
+<thead><tr><th>商品</th><th>7月 出数</th><th>客数あたり</th><th>8月 出数</th><th>客数あたり</th><th>客数あたり 前月比</th></tr></thead>
+<tbody>
+<tr style="background:#f8faff"><td><strong>彩り野菜カレー</strong></td><td>133点</td><td>4.48%</td><td>262点</td><td>5.30%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+18%</td></tr>
+<tr><td>富士山欧風カレー</td><td>141点</td><td>4.75%</td><td>265点</td><td>5.36%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+13%</td></tr>
+<tr><td>焼きチーズカレー</td><td>68点</td><td>2.29%</td><td>137点</td><td>2.77%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+21%</td></tr>
+<tr style="font-weight:700"><td>カレー計</td><td>344点</td><td>11.60%</td><td>665点</td><td>13.45%</td><td style="color:#2d9e5f;font-weight:700">&#9650;+16%</td></tr>
+</tbody>
+</table>
+<div class="notice ng" style="margin-top:12px">&#128204; <strong>彩り野菜カレーは客数あたり+18%で、狙いどおり出数が伸びている。</strong>7月レポートで課題1として挙げた「カレーの落ち込み」は、8月時点で解消方向。</div>
+<div class="notice ny" style="margin-top:10px">&#9888;&#65039; <strong>ただし「見せ方変更の効果」と断定はできない。</strong>手を入れていない焼きチーズカレーが+21%と彩り野菜（+18%）を上回っており、<strong>カレー部門全体が底上げされている</strong>（カレー計+16%）。Dinii移行でメニュー画面そのものが変わっているため、<strong>彩り野菜カレー固有の効果は分離できない。</strong><br>
+9月は<strong>メニュー変更を入れない「素の月」</strong>になるため、9月のカレー出数を見れば「8月の伸びが移行効果の一時的なものか、定着したのか」が判定できる。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#127869;&#65039; カテゴリ別売上構成（前月比）</div>
+<div class="notice ny" style="margin-bottom:14px">&#9888;&#65039; <strong>売上（円）の前月比は、カテゴリ間で比較できない。</strong>7月（スマレジ）はセットドリンクが独立部門だったが、8月（Dinii）はセット代が親商品に含まれる。そのため主菜カテゴリの8月売上には<strong>約+11%のゲタ</strong>が乗り、「セット/オプション」は逆に大きく減って見える（&#9660;79.8%）。<strong>判断材料は右端の「客数あたり出数」。</strong></div>
+<div class="two">
+  <div class="card"><h3>2026年8月</h3><svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><path d="M 170.0 8.0 A 112 112 0 0 1 281.3 132.1 L 225.7 126.1 A 56 56 0 0 0 170.0 64.0 Z" fill="#e85d04" stroke="white" stroke-width="2"/><path d="M 281.3 132.1 A 112 112 0 0 1 204.6 226.5 L 187.3 173.3 A 56 56 0 0 0 225.7 126.1 Z" fill="#f48c06" stroke="white" stroke-width="2"/><path d="M 204.6 226.5 A 112 112 0 0 1 120.8 220.6 L 145.4 170.3 A 56 56 0 0 0 187.3 173.3 Z" fill="#2d9e5f" stroke="white" stroke-width="2"/><path d="M 120.8 220.6 A 112 112 0 0 1 61.7 148.7 L 115.9 134.4 A 56 56 0 0 0 145.4 170.3 Z" fill="#1a3a5c" stroke="white" stroke-width="2"/><path d="M 61.7 148.7 A 112 112 0 0 1 63.0 86.9 L 116.5 103.4 A 56 56 0 0 0 115.9 134.4 Z" fill="#7c3aed" stroke="white" stroke-width="2"/><path d="M 63.0 86.9 A 112 112 0 0 1 94.5 37.2 L 132.3 78.6 A 56 56 0 0 0 116.5 103.4 Z" fill="#0891b2" stroke="white" stroke-width="2"/><path d="M 94.5 37.2 A 112 112 0 0 1 114.1 23.0 L 142.0 71.5 A 56 56 0 0 0 132.3 78.6 Z" fill="#d62828" stroke="white" stroke-width="2"/><path d="M 114.1 23.0 A 112 112 0 0 1 170.0 8.0 L 170.0 64.0 A 56 56 0 0 0 142.0 71.5 Z" fill="#9ca3af" stroke="white" stroke-width="2"/></svg><div class="legend"><div class="li"><span class="ld" style="background:#e85d04"></span>パンケーキ(3枚) 26.7%</div><div class="li"><span class="ld" style="background:#f48c06"></span>パンケーキ(2枚) 18.3%</div><div class="li"><span class="ld" style="background:#2d9e5f"></span>カレー 12.2%</div><div class="li"><span class="ld" style="background:#1a3a5c"></span>シーズナル・お食事パンケーキ 13.6%</div><div class="li"><span class="ld" style="background:#7c3aed"></span>オムライス 8.9%</div><div class="li"><span class="ld" style="background:#0891b2"></span>ピザ・ステーキ 8.5%</div><div class="li"><span class="ld" style="background:#d62828"></span>セット/オプション・ドリンク 3.4%</div><div class="li"><span class="ld" style="background:#9ca3af"></span>その他 8.3%</div></div></div>
+  <div class="card"><h3>2026年7月</h3><svg viewBox="0 0 340 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block"><path d="M 170.0 8.0 A 112 112 0 0 1 281.8 113.7 L 225.9 116.8 A 56 56 0 0 0 170.0 64.0 Z" fill="#e85d04" stroke="white" stroke-width="2"/><path d="M 281.8 113.7 A 112 112 0 0 1 201.6 227.4 L 185.8 173.7 A 56 56 0 0 0 225.9 116.8 Z" fill="#f48c06" stroke="white" stroke-width="2"/><path d="M 201.6 227.4 A 112 112 0 0 1 131.9 225.3 L 151.0 172.7 A 56 56 0 0 0 185.8 173.7 Z" fill="#2d9e5f" stroke="white" stroke-width="2"/><path d="M 131.9 225.3 A 112 112 0 0 1 89.7 198.1 L 129.8 159.0 A 56 56 0 0 0 151.0 172.7 Z" fill="#1a3a5c" stroke="white" stroke-width="2"/><path d="M 89.7 198.1 A 112 112 0 0 1 61.1 146.3 L 115.6 133.2 A 56 56 0 0 0 129.8 159.0 Z" fill="#7c3aed" stroke="white" stroke-width="2"/><path d="M 61.1 146.3 A 112 112 0 0 1 64.7 81.8 L 117.4 100.9 A 56 56 0 0 0 115.6 133.2 Z" fill="#0891b2" stroke="white" stroke-width="2"/><path d="M 64.7 81.8 A 112 112 0 0 1 116.5 21.6 L 143.2 70.8 A 56 56 0 0 0 117.4 100.9 Z" fill="#d62828" stroke="white" stroke-width="2"/><path d="M 116.5 21.6 A 112 112 0 0 1 170.0 8.0 L 170.0 64.0 A 56 56 0 0 0 143.2 70.8 Z" fill="#9ca3af" stroke="white" stroke-width="2"/></svg><div class="legend"><div class="li"><span class="ld" style="background:#e85d04"></span>パンケーキ(3枚) 24.1%</div><div class="li"><span class="ld" style="background:#f48c06"></span>パンケーキ(2枚) 21.3%</div><div class="li"><span class="ld" style="background:#2d9e5f"></span>カレー 10.1%</div><div class="li"><span class="ld" style="background:#1a3a5c"></span>シーズナル・お食事パンケーキ 7.2%</div><div class="li"><span class="ld" style="background:#7c3aed"></span>オムライス 8.5%</div><div class="li"><span class="ld" style="background:#0891b2"></span>ピザ・ステーキ 9.3%</div><div class="li"><span class="ld" style="background:#d62828"></span>セット/オプション・ドリンク 11.5%</div><div class="li"><span class="ld" style="background:#9ca3af"></span>その他 7.9%</div></div></div>
+</div>
+<div class="card" style="margin-top:14px">
+<h3>カテゴリ別 比較（前月比）</h3>
+<table>
+<thead><tr><th>カテゴリ</th><th>8月<br><span style="font-size:10px;font-weight:400;text-transform:none">税抜</span></th><th>構成比</th><th>7月<br><span style="font-size:10px;font-weight:400;text-transform:none">税抜</span></th><th>構成比</th><th>売上 前月比<br><span style="font-size:10px;font-weight:400;text-transform:none">※ゲタあり</span></th><th>出数 8月/7月</th><th>出数 前月比</th><th>客数あたり出数<br><span style="font-size:10px;font-weight:400;text-transform:none">8月 &#8592; 7月</span></th></tr></thead>
+<tbody>
+<tr><td>パンケーキ(3枚)</td><td>&#165;2,458,996</td><td>26.7%</td><td>&#165;1,289,710</td><td>24.1%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+90.7%</span></td><td>1,317 / 757点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+74.0%</span></td><td>26.6% <span style='color:#9ca3af'>&#8592; 25.5%</span> <span style='color:#2d9e5f;font-weight:700'>(+4%)</span></td></tr><tr><td>パンケーキ(2枚)</td><td>&#165;1,682,446</td><td>18.3%</td><td>&#165;1,142,019</td><td>21.3%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+47.3%</span></td><td>1,021 / 752点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+35.8%</span></td><td>20.7% <span style='color:#9ca3af'>&#8592; 25.4%</span> <span style='color:#d62828;font-weight:700'>(-19%)</span></td></tr><tr><td>カレー</td><td>&#165;1,124,750</td><td>12.2%</td><td>&#165;538,884</td><td>10.1%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+108.7%</span></td><td>665 / 344点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+93.3%</span></td><td>13.5% <span style='color:#9ca3af'>&#8592; 11.6%</span> <span style='color:#2d9e5f;font-weight:700'>(+16%)</span></td></tr><tr><td>オムライス</td><td>&#165;819,580</td><td>8.9%</td><td>&#165;454,680</td><td>8.5%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+80.3%</span></td><td>497 / 300点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+65.7%</span></td><td>10.1% <span style='color:#9ca3af'>&#8592; 10.1%</span> <span style='color:#d62828;font-weight:700'>(-1%)</span></td></tr><tr><td>シーズナルパンケーキ</td><td>&#165;663,590</td><td>7.2%</td><td>&#165;213,366</td><td>4.0%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+211.0%</span></td><td>237 / 83点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+185.5%</span></td><td>4.8% <span style='color:#9ca3af'>&#8592; 2.8%</span> <span style='color:#2d9e5f;font-weight:700'>(+71%)</span></td></tr><tr><td>お食事パンケーキ</td><td>&#165;591,366</td><td>6.4%</td><td>&#165;172,304</td><td>3.2%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+243.2%</span></td><td>297 / 98点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+203.1%</span></td><td>6.0% <span style='color:#9ca3af'>&#8592; 3.3%</span> <span style='color:#2d9e5f;font-weight:700'>(+82%)</span></td></tr><tr><td>ピザ</td><td>&#165;418,240</td><td>4.5%</td><td>&#165;260,666</td><td>4.9%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+60.5%</span></td><td>277 / 185点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+49.7%</span></td><td>5.6% <span style='color:#9ca3af'>&#8592; 6.2%</span> <span style='color:#d62828;font-weight:700'>(-10%)</span></td></tr><tr><td>ステーキ</td><td>&#165;360,000</td><td>3.9%</td><td>&#165;238,243</td><td>4.5%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+51.1%</span></td><td>200 / 158点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+26.6%</span></td><td>4.0% <span style='color:#9ca3af'>&#8592; 5.3%</span> <span style='color:#d62828;font-weight:700'>(-24%)</span></td></tr><tr><td>お子様</td><td>&#165;231,280</td><td>2.5%</td><td>&#165;107,212</td><td>2.0%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+115.7%</span></td><td>236 / 110点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+114.5%</span></td><td>4.8% <span style='color:#9ca3af'>&#8592; 3.7%</span> <span style='color:#2d9e5f;font-weight:700'>(+29%)</span></td></tr><tr><td>おつまみ</td><td>&#165;229,480</td><td>2.5%</td><td>&#165;142,754</td><td>2.7%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+60.8%</span></td><td>325 / 188点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+72.9%</span></td><td>6.6% <span style='color:#9ca3af'>&#8592; 6.3%</span> <span style='color:#2d9e5f;font-weight:700'>(+4%)</span></td></tr><tr><td>単品ドリンク・アルコール</td><td>&#165;215,558</td><td>2.3%</td><td>&#165;113,133</td><td>2.1%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+90.5%</span></td><td>416 / 205点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+102.9%</span></td><td>8.4% <span style='color:#9ca3af'>&#8592; 6.9%</span> <span style='color:#2d9e5f;font-weight:700'>(+22%)</span></td></tr><tr><td>サラダ</td><td>&#165;138,000</td><td>1.5%</td><td>&#165;71,080</td><td>1.3%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+94.1%</span></td><td>100 / 52点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+92.3%</span></td><td>2.0% <span style='color:#9ca3af'>&#8592; 1.8%</span> <span style='color:#2d9e5f;font-weight:700'>(+15%)</span></td></tr><tr style="background:#fffbeb"><td>セット/オプション</td><td>&#165;101,485</td><td>1.1%</td><td>&#165;503,398</td><td>9.4%</td><td><span style="color:#d62828;font-weight:700">&#9660;-79.8%</span></td><td>326 / 1,603点</td><td><span style="color:#d62828;font-weight:700">&#9660;-79.7%</span></td><td>6.6% <span style='color:#9ca3af'>&#8592; 54.0%</span> <span style='color:#d62828;font-weight:700'>(-88%)</span></td></tr><tr><td>食後のミニパンケーキ</td><td>&#165;98,250</td><td>1.1%</td><td>&#165;64,300</td><td>1.2%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+52.8%</span></td><td>393 / 259点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+51.7%</span></td><td>7.9% <span style='color:#9ca3af'>&#8592; 8.7%</span> <span style='color:#d62828;font-weight:700'>(-9%)</span></td></tr><tr><td>物販</td><td>&#165;53,478</td><td>0.6%</td><td>&#165;35,333</td><td>0.7%</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+51.4%</span></td><td>78 / 40点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+95.0%</span></td><td>1.6% <span style='color:#9ca3af'>&#8592; 1.3%</span> <span style='color:#2d9e5f;font-weight:700'>(+17%)</span></td></tr>
+</tbody>
+</table>
+<div class="notice nb" style="margin-top:12px">&#128204; <strong>客数あたり出数で見た増減：</strong><br>
+&#8226; <strong>伸びた：</strong>お食事パンケーキ 3.3%&#8594;6.0%（+82%）、シーズナル 2.8%&#8594;4.8%（+71%）、お子様 3.7%&#8594;4.8%（+29%）、カレー 11.6%&#8594;13.5%（+16%）<br>
+&#8226; <strong>落ちた：</strong>パンケーキ(2枚) 25.4%&#8594;20.7%（&#9660;18%）、ステーキ 5.3%&#8594;4.0%（&#9660;25%）、ピザ 6.2%&#8594;5.6%（&#9660;10%）、食後のミニパンケーキ 8.7%&#8594;7.9%（&#9660;9%）</div>
+<div class="notice ng" style="margin-top:10px">&#128204; <strong>パンケーキは「2枚」から「3枚・付加価値品」へシフト。</strong>2枚が25.4%&#8594;20.7%と落ちる一方、3枚は25.5%&#8594;26.6%、白桃（シーズナル）とエッグベネディクト（お食事）が大きく伸びた。<strong>客単価の押し上げにはプラス。</strong>ただし2枚は「軽く食べたい客」の受け皿でもあるため、意図した動きかどうかは店舗と確認したい。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#127942; 商品別 TOP15（セット+単品合算 / 前月比・出数ベース）</div>
+<div class="card">
+<div class="notice ny" style="margin-bottom:12px">&#9888;&#65039; 前述のとおり<strong>8月の売上額にはオプション代が含まれる</strong>ため、売上の前月比は掲載していない。<strong>比較可能なのは出数。</strong>商品名はスマレジ（7月）とDinii（8月）で表記が異なるため正規化して突合している（例：「窯焼マルゲリータピッツァ単品」＝「釜焼マルゲリータピッツァ」、「桃のパンケーキ」＝「白桃丸ごとパンケーキ3枚」、「お絵かき」＝「お絵描き」）。単品・ドリンクセットは合算。</div>
+<table>
+<thead><tr><th>#</th><th>商品（セット+単品合算）</th><th>8月 売上<br><span style="font-size:10px;font-weight:400;text-transform:none">税抜・オプション込</span></th><th>構成比</th><th>出数 8月/7月</th><th>出数 前月比</th><th>客数あたり出数<br><span style="font-size:10px;font-weight:400;text-transform:none">8月 &#8592; 7月</span></th><th>客数あたり<br>前月比</th></tr></thead>
+<tbody>
+<tr><td class='r1'>1</td><td>富士山パンケーキ(3枚)</td><td>&#165;1,014,676</td><td>11.0%</td><td>600 / 339点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+77.0%</span></td><td>12.14% <span style='color:#9ca3af'>&#8592; 11.43%</span></td><td style='color:#2d9e5f;font-weight:700'>+6%</td></tr><tr><td class='r2'>2</td><td>ビーフシチューオムライス</td><td>&#165;819,480</td><td>8.9%</td><td>496 / 298点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+66.4%</span></td><td>10.03% <span style='color:#9ca3af'>&#8592; 10.05%</span></td><td style='color:#d62828;font-weight:700'>-0%</td></tr><tr><td class='r3'>3</td><td>富士山パンケーキ(2枚)</td><td>&#165;760,516</td><td>8.3%</td><td>502 / 296点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+69.6%</span></td><td>10.15% <span style='color:#9ca3af'>&#8592; 9.98%</span></td><td style='color:#2d9e5f;font-weight:700'>+2%</td></tr><tr><td class='rank'>4</td><td>白桃パンケーキ(旧:桃のパンケーキ)</td><td>&#165;663,590</td><td>7.2%</td><td>237 / 83点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+185.5%</span></td><td>4.79% <span style='color:#9ca3af'>&#8592; 2.80%</span></td><td style='color:#2d9e5f;font-weight:700'>+71%</td></tr><tr><td class='rank'>5</td><td>エッグベネディクトパンケーキ</td><td>&#165;591,366</td><td>6.4%</td><td>297 / 98点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+203.1%</span></td><td>6.01% <span style='color:#9ca3af'>&#8592; 3.30%</span></td><td style='color:#2d9e5f;font-weight:700'>+82%</td></tr><tr><td class='rank'>6</td><td>バナナチョコレートパンケーキ(3枚)</td><td>&#165;569,540</td><td>6.2%</td><td>284 / 142点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+100.0%</span></td><td>5.74% <span style='color:#9ca3af'>&#8592; 4.79%</span></td><td style='color:#2d9e5f;font-weight:700'>+20%</td></tr><tr><td class='rank'>7</td><td>彩り野菜カレー</td><td>&#165;480,730</td><td>5.2%</td><td>262 / 133点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+97.0%</span></td><td>5.30% <span style='color:#9ca3af'>&#8592; 4.48%</span></td><td style='color:#2d9e5f;font-weight:700'>+18%</td></tr><tr><td class='rank'>8</td><td>窯焼マルゲリータピッツァ</td><td>&#165;418,240</td><td>4.5%</td><td>277 / 185点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+49.7%</span></td><td>5.60% <span style='color:#9ca3af'>&#8592; 6.24%</span></td><td style='color:#d62828;font-weight:700'>-10%</td></tr><tr><td class='rank'>9</td><td>富士山欧風カレー</td><td>&#165;403,920</td><td>4.4%</td><td>265 / 141点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+87.9%</span></td><td>5.36% <span style='color:#9ca3af'>&#8592; 4.75%</span></td><td style='color:#2d9e5f;font-weight:700'>+13%</td></tr><tr><td class='rank'>10</td><td>ブルーベリー&CCパンケーキ(3枚)</td><td>&#165;396,810</td><td>4.3%</td><td>196 / 147点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+33.3%</span></td><td>3.96% <span style='color:#9ca3af'>&#8592; 4.96%</span></td><td style='color:#d62828;font-weight:700'>-20%</td></tr><tr><td class='rank'>11</td><td>窯焼パリパリチキンステーキ</td><td>&#165;360,000</td><td>3.9%</td><td>200 / 158点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+26.6%</span></td><td>4.05% <span style='color:#9ca3af'>&#8592; 5.33%</span></td><td style='color:#d62828;font-weight:700'>-24%</td></tr><tr><td class='rank'>12</td><td>バナナチョコレートパンケーキ(2枚)</td><td>&#165;299,100</td><td>3.3%</td><td>169 / 144点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+17.4%</span></td><td>3.42% <span style='color:#9ca3af'>&#8592; 4.86%</span></td><td style='color:#d62828;font-weight:700'>-30%</td></tr><tr><td class='rank'>13</td><td>ブルーベリー&CCパンケーキ(2枚)</td><td>&#165;270,920</td><td>2.9%</td><td>151 / 125点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+20.8%</span></td><td>3.05% <span style='color:#9ca3af'>&#8592; 4.21%</span></td><td style='color:#d62828;font-weight:700'>-28%</td></tr><tr><td class='rank'>14</td><td>焼きチーズカレー</td><td>&#165;238,570</td><td>2.6%</td><td>137 / 68点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+101.5%</span></td><td>2.77% <span style='color:#9ca3af'>&#8592; 2.29%</span></td><td style='color:#2d9e5f;font-weight:700'>+21%</td></tr><tr><td class='rank'>15</td><td>はちみつレモン&CCパンケーキ(3枚)</td><td>&#165;190,290</td><td>2.1%</td><td>94 / 53点</td><td><span style="color:#2d9e5f;font-weight:700">&#9650;+77.4%</span></td><td>1.90% <span style='color:#9ca3af'>&#8592; 1.79%</span></td><td style='color:#2d9e5f;font-weight:700'>+6%</td></tr>
+</tbody>
+</table>
+<div class="notice ng" style="margin-top:12px">&#128204; <strong>白桃パンケーキ（客数あたり+71%）とエッグベネディクトパンケーキ（+82%）が突出。</strong>7月に導入した2品が、客数の伸びを大きく上回るペースで伸びており、<strong>導入判断は正しかったと確認できた。</strong>白桃は8月売上&#165;663,590で構成比7.2%、単月で全商品中4位。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#10024; Dinii移行で新たに取れるようになった指標</div>
+<div class="card">
+<div class="three">
+  <div class="ib"><div class="lb">モバイルオーダー チェックイン率</div><div class="vl">31.0%</div><div class="sb">客数加重平均（8/5〜8/31）</div></div>
+  <div class="hb"><div class="lb">「ドリンクなし」選択率</div><div class="vl">34.2%</div><div class="sb">1,239回／ドリンク選択3,627回</div></div>
+  <div class="ib"><div class="lb">商品別リピート率 上位</div><div class="vl">8.4%</div><div class="sb">食後のミニパンケーキセット（349点）</div></div>
+</div>
+<div class="notice nb" style="margin-top:14px">&#128204; スマレジでは取れなかった<strong>&#9312;オプションの選択・非選択の実数 &#9313;モバイルオーダーのチェックイン率 &#9314;リピーター比率・商品別リピート率</strong>が取得できるようになった。<br>
+&#8226; <strong>チェックイン率31.0%</strong>：残り約7割は従来どおりの接客オーダー。ここを上げれば注文〜提供のリードタイムが縮み、ピーク日の回転率改善に直結する（課題3）。<br>
+&#8226; <strong>リピーター比率0.32%</strong>：河口湖という立地上ほぼ観光客であり、この水準は想定内。KPIとして追うなら「山梨県内客のリピート」など母数を切り分ける必要がある。<br>
+&#8226; <strong>商品別リピート率</strong>：食後のミニパンケーキセット8.4%、ブルーベリー&amp;クリームチーズ(3枚)6.7%、白桃6.5%、彩り野菜カレー5.5%。再来店客が選ぶ商品が見えるようになった。</div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128176; 目標達成状況（Dinii設定目標・8/5〜8/31）</div>
+<div class="card">
+<div class="three">
+  <div class="ib"><div class="lb">期間目標（8/5〜8/31）</div><div class="vl">&#165;7,340,000</div><div class="sb">Diniiに設定された日別目標の合計</div></div>
+  <div class="ib"><div class="lb">実績</div><div class="vl">&#165;8,129,173</div><div class="sb">達成率 110.8%</div></div>
+  <div class="hb"><div class="lb">日別未達</div><div class="vl">11日 / 27日</div><div class="sb">最大未達は8/31（達成率66.3%）</div></div>
+</div>
+<div class="notice nb" style="margin-top:14px">&#128204; 期間合計では<strong>110.8%で目標超過</strong>。ただし日別では27日中11日が未達で、<strong>未達日は8/16以降の下旬に7日が集中</strong>（8/16 79.6%、8/20 76.4%、8/28 84.4%、8/31 66.3%）。<strong>お盆で稼いで下旬で落とす形</strong>になっており、下旬の日別目標設定と集客策の両面で見直しが要る。<br>
+<span style="color:var(--muted)">※8/1〜8/4はDiniiの目標欄にスマレジ実績が入力されているため、期間目標から除外している。</span></div>
+</div>
+</section>
+
+<section>
+<div class="st">&#128260; 先月（7月）対策の進捗確認</div>
+<div class="card">
+<table>
+<thead><tr><th>先月の対策</th><th>8月の結果</th><th>評価</th></tr></thead>
+<tbody>
+<tr><td>対策1　カレーの表示順変更の効果を、POSの期間分割エクスポート（7/1〜15／7/16〜31／前年同期間）で検証する</td><td><strong>未実施。</strong>8月にPOS移行が入り、移行作業を優先した。8月は彩り野菜カレーの<strong>客数あたり出数が4.48%&#8594;5.30%（+18%）</strong>と改善したが、手を入れていない焼きチーズカレーも+21%で、<strong>固有効果は分離できていない</strong></td><td><span style="color:#f59e0b;font-weight:700">&#9679; 未実施（結果は改善）</span></td></tr>
+<tr><td>対策2　週末のキャパシティ制約を、客数上限（目安210人）到達日数で定量化する</td><td><strong>実施。</strong>客数210人超が<strong>7日</strong>（前年3日）、最大<strong>281人</strong>（前年249人）。<strong>210人は上限ではなかった</strong>ことが判明し、前年ピークを32人上回る受け入れができた</td><td><span style="color:#2d9e5f;font-weight:700">&#9679; 実施・想定を上方修正</span></td></tr>
+<tr><td>対策3　客層別売上CSVを毎月取得し、お子様・サラダの前年割れが客層シフトによるものか確認する</td><td><strong>未取得（3ヶ月連続）。</strong>ただしお子様は客数あたり出数3.7%&#8594;4.8%、サラダは1.8%&#8594;2.0%と、いずれも8月は改善。またDiniiでリピーター比率・チェックイン率という別軸の指標が取得できるようになった</td><td><span style="color:#d62828;font-weight:700">&#9679; 未着手</span></td></tr>
+<tr><td>対策4　月次レポートのデータ取得を定型化する</td><td><strong>POS移行により前提が変わった。</strong>Diniiは商品売上にオプション代を合算する等、スマレジと集計の考え方が異なる。<strong>定型化の対象そのものを作り直す必要がある</strong></td><td><span style="color:#f59e0b;font-weight:700">&#9679; 再設計が必要</span></td></tr>
+<tr><td>（7月導入の新メニュー2品）</td><td>白桃パンケーキ&#165;663,590（客数あたり出数+71%）、エッグベネディクトパンケーキ&#165;591,366（+82%）。<strong>2品合計&#165;1,254,956・構成比13.6%</strong>まで拡大</td><td><span style="color:#2d9e5f;font-weight:700">&#9679; 定着</span></td></tr>
+<tr><td>（8月実施　オプション設計の変更）</td><td>客数あたりのオプション付帯が<strong>9.1%&#8594;20.2%（2.2倍）</strong>、売上寄与&#165;105,920。大盛り変更は4点&#8594;120点</td><td><span style="color:#2d9e5f;font-weight:700">&#9679; 成功</span></td></tr>
+<tr><td>（8月実施　ドリンクの「単品＋ドリンク選択」一本化）</td><td>客数あたりドリンク提供数が<strong>52.0%&#8594;62.3%</strong>。「ドリンクなし」選択34.2%も新たに可視化</td><td><span style="color:#2d9e5f;font-weight:700">&#9679; 成功</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section>
+<div class="st">&#128269; 課題と対策</div>
+<div class="issue-grid">
+
+<div class="ic">
+<div class="ct">&#9888; 課題1　Diniiの集計ルールが未整理 ― 読み違えると数字を大きく誤る</div>
+<div class="cb">
+今月の検証で、<strong>Diniiの数字をそのまま使うと誤読する箇所が3つ</strong>見つかった。<br><br>
+&#8226; <strong>商品別の「売上合計」「単価」にオプション代が合算されている。</strong>「オプション別」CSVはその内訳ビューであり、<strong>足すと二重計上（&#165;762,800）になる。</strong>逆に、この列を使ってメニュー価格の推移を見ると「+9〜22%値上げした」という誤った結論になる。<br>
+&#8226; <strong>「ドリンク選択」の出数に『ドリンクなし』1,239回が含まれる。</strong>そのまま使うと付帯率が87.3%（実際は62.3%）と過大に出る。<br>
+&#8226; <strong>7月（スマレジ）とはカテゴリの持ち方が違う。</strong>セットドリンクが独立部門から親商品への合算に変わったため、<strong>カテゴリ別の売上額は前月比較できない。</strong><br><br>
+今月は検証で正しい数字にたどり着けたが、<strong>ルールが人の頭の中にしかない。</strong>
+</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策1　「Dinii集計ルール」を1枚にまとめ、9月レポートから固定運用する</div>
+<div class="cb">
+&#8226; <strong>【最優先】ルールの明文化</strong>：&#9312;売上は「日別売上」を正とし、オプション別は加算しない &#9313;単価列はオプション込み平均であり、メニュー価格ではない &#9314;ドリンク出数は「ドリンクなし」「&#165;0提供」を除外 &#9315;商品名の対応表（窯焼&#8594;釜焼、単品/セット合算ルール）。これを1枚にまとめ、レポート生成スクリプトに組み込む。<br>
+&#8226; <strong>比較可能な指標に統一する</strong>：POS移行をまたぐ間は、<strong>売上額ではなく「客数あたり出数」を第一指標にする。</strong>本レポートはすでにこの方針で作成している。<br>
+&#8226; <strong>組数（取引数）の取得</strong>：Diniiの日別エクスポートに組数がなく、取引単価が追えなくなっている。取得方法をベンダーに確認する。<br>
+&#8226; <strong>移行前後の突合</strong>：8/4はスマレジとDiniiの両方にデータがある。この日で定義差を実証し、ルールの検算に使う。
+</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題2　月曜だけが前年割れ ― 下旬の平日集客が弱い</div>
+<div class="cb">
+祝日の位置ズレ（山の日が2025年は月曜、2026年は火曜）を除くため、<strong>お盆期を除いた通常期で曜日ごとに同日数（各3日）を揃えて比較した</strong>ところ、<strong>月曜だけが売上&#9660;5.9%・客数&#9660;11.7%と前年割れ</strong>。他6曜日はすべて客数プラス。<br><br>
+明細は8/3=118人、8/24=119人、<strong>8/31=66人</strong>（前年 8/4=115人、8/18=126人、8/25=102人）。<strong>8/31は月内最低で、前年同週の月曜を36人下回る。</strong><br><br>
+期間別でも下旬（8/18〜31）の客数の伸びは+10.1%と、上旬+20.3%・お盆+16.5%に対して明確に鈍い。Dinii目標に対する未達11日のうち7日が8/16以降に集中している。
+</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策2　月曜・下旬平日を狙った施策を、効果測定とセットで打つ</div>
+<div class="cb">
+&#8226; <strong>まず要因の切り分け</strong>：月曜の落ち込みが &#9312;近隣観光施設の休館日 &#9313;団体・バスツアーの曜日偏り &#9314;自店のシフト・オペレーション のどれによるものかを、9月の月曜4日分で確認する。<br>
+&#8226; <strong>下旬平日の施策</strong>：学校再開後は家族客が減り、シニア・地元客の比重が上がる。<strong>平日限定のセット（食事＋ミニパンケーキ＋ドリンク）</strong>を9月下旬にテスト導入する。<br>
+&#8226; <strong>効果測定を先に決める</strong>：施策の実施日を記録し、Diniiで<strong>実施前／実施後の期間指定エクスポート</strong>を取る。判定指標は「月曜の平均客数」と「下旬平日の客数あたり出数」。<br>
+&#8226; <strong>日別目標の見直し</strong>：下旬の未達が集中しているため、9月の日別目標が実勢と合っているかを再設定する。
+</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題3　オプション付帯にまだ取りこぼしがある</div>
+<div class="cb">
+オプション設計の変更は成功したが、<strong>数字を見ると取りこぼしが2つ残っている。</strong><br><br>
+&#8226; <strong>ドリンク選択が表示されていない主菜が574点（14%）ある。</strong>「ドリンク選択」の提示は3,627回で、Diniiの主菜出数4,201点の86%にとどまる。意図的でなければ、メニュー設定の修正だけで付帯率が上がる。<br>
+&#8226; <strong>「ドリンクなし」を選んだ1,239人分。</strong>仮にこの1割にドリンクが付けば<strong>月間+約&#165;42,000（税抜・&#165;341換算）</strong>。<br><br>
+またモバイルオーダーの<strong>チェックイン率は31.0%</strong>で、約7割は接客オーダー。ピーク日（客数250人超が3日）の回転率を左右する要素として活かしきれていない。
+</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策3　メニュー設定の点検と、チェックイン率を回転率KPIに</div>
+<div class="cb">
+&#8226; <strong>【すぐできる】ドリンク選択が出ていない商品を洗い出す</strong>：Diniiのメニュー設定を点検し、ドリンク選択が付いていない主菜574点分の商品を特定する。設定漏れなら追加するだけで付帯率が上がる。9月上旬に実施。<br>
+&#8226; <strong>「ドリンクなし」対策</strong>：ドリンク選択画面での見せ方（価格表示・おすすめ表示）を変え、9月の「ドリンクなし」比率34.2%がどう動くかで判定する。<strong>今月から比較基準が取れるようになった。</strong><br>
+&#8226; <strong>チェックイン率31%&#8594;50%を9月の目標に置く</strong>。卓上QRの掲出位置、入店時の案内文言、スタッフの声かけの3点をテストし、日別の推移で効果を見る。<br>
+&#8226; <strong>ピーク日の実測</strong>：客数250人超の日について待ち時間・提供リードタイム・回転数を実測し、281人が上限なのか余力があるのかを数字で押さえる。
+</div>
+</div>
+
+<div class="ic">
+<div class="ct">&#9888; 課題4　客層データが3ヶ月連続で未取得のまま</div>
+<div class="cb">
+7月レポートの対策3で「客層別売上CSVを毎月必ず取得しレポートに定例掲載する」としたが、<strong>6月・7月・8月と3ヶ月連続で未取得</strong>。POS移行が理由ではあるが、<strong>この間ずっと「ファミリー客が減っているのか、客層が変わっただけなのか」を判断できていない。</strong><br><br>
+一方でDiniiでは、リピーター比率・チェックイン率・商品別リピート率という<strong>スマレジになかった指標</strong>が取得できるようになった。従来の客層別CSVと同じものが取れるかは未確認。
+</div>
+</div>
+<div class="ac">
+<div class="ct">&#10003; 対策4　Diniiで取得できる客層系データの棚卸しを9月中に行う</div>
+<div class="cb">
+&#8226; <strong>Diniiで何が取れるかを先に確定させる</strong>：客層別（年代・性別・インバウンド）のエクスポートが存在するかをベンダーに確認する。存在するなら9月分から定例掲載、存在しないなら代替指標（リピーター比率・チェックイン率・商品別リピート率）で客層の動きを追う設計に切り替える。<br>
+&#8226; <strong>「取れない」なら早く見切る</strong>：3ヶ月間「取得する」と書き続けて実行できていない。9月レポートまでに<strong>取得可否を確定させ、取れないなら課題から落とす</strong>。<br>
+&#8226; <strong>リピーター比率の扱いを決める</strong>：0.32%は河口湖という立地上ほぼ観光客のため想定内。KPIとして追うなら母数の切り分けが必要で、<strong>切り分けられないなら追わないと決める</strong>。
+</div>
+</div>
+
+</div>
+</section>
+
+<div class="notice ny" style="margin-top:20px">&#9888;&#65039; <strong>本レポートの前提と未反映項目：</strong><br>
+&#8226; 売上KPIは「スマレジ日別（8/1〜4）＋Dinii日別（8/5〜31）」。<strong>Diniiの商品売上にはオプション代が合算されているため、オプション別CSVは加算していない</strong>（加算すると二重計上）。<br>
+&#8226; 商品・カテゴリ分析の母数は商品別データの積み上げ&#165;9,201,420。売上KPI&#165;9,183,471との差&#165;17,949は8/4のDinii分・チップ等。<br>
+&#8226; 7月（スマレジ）と8月（Dinii）はセットドリンクの持ち方が違うため、<strong>商品・カテゴリの前月比は「客数あたり出数」で判断している。</strong>売上額の前月比には約+11%のゲタが乗る。<br>
+&#8226; 取引数（組数）はDiniiの日別エクスポートに項目がないため、8月は前年比較していない。<br>
+&#8226; 商品分析は<strong>前月比</strong>で作成している（前年8月の商品別データが未取得のため前年比較不可）。<br>
+&#8226; 客層別売上（インバウンド／家族／学生等）は3ヶ月連続で未取得。</div>
+
+</main>`
+  },
   '2026-07': {
     label: '2026年7月',
     reportDate: '2026年8月14日',

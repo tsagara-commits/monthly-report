@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>富士山パンケーキ 月次売上レポート</title>
+<title>富士山麓プロジェクト 月次報告</title>
 <style>
 :root{--primary:#1a3a5c;--accent:#e85d04;--positive:#2d9e5f;--negative:#d62828;--bg:#f5f7fa;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -109,7 +109,7 @@ footer{text-align:center;padding:20px;color:var(--muted);font-size:11px}
 
 <header>
   <div>
-    <h1>&#127861; 富士山パンケーキ 月次売上レポート</h1>
+    <h1>&#128507; 富士山麓プロジェクト 月次報告</h1>
     <div class="sub">AP Holdings &#124; <span id="report-date"></span></div>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -128,7 +128,12 @@ const REPORT_DATA = {
     fujisan: `<main>
 
 <section>
-<div class="st">&#128200; 主要KPI（前年同月比）</div>
+<div class="st">&#128507; 富士山麓プロジェクト 構成</div>
+<div class="notice nb">&#128204; <strong>本レポートは富士山麓プロジェクトの月次報告。</strong>現在の対象事業は <strong>&#127861; 富士山パンケーキ（山梨県・河口湖）</strong> の1事業。今後、富士山麓エリアで立ち上がる事業を順次追加する。</div>
+</section>
+
+<section>
+<div class="st">&#127861; 富士山パンケーキ ｜ 主要KPI（前年同月比）</div>
 <div class="kpi-grid">
   <div class="kpi"><div class="kl">純売上（税抜）</div><div class="kv">&#165;9,183,471</div><div class="ks">前年：&#165;7,284,488</div><div class="ky">前年比 126.1%</div><div class="ks" style="margin-top:8px;opacity:.55">税込 &#165;10,101,818</div></div>
   <div class="kpi"><div class="kl">客数</div><div class="kv">4,944人</div><div class="ks">前年：4,305人</div><div class="ky">前年比 114.8%</div><div class="ks" style="margin-top:8px;opacity:.55">1日平均 159.5人</div></div>
@@ -142,28 +147,29 @@ const REPORT_DATA = {
 </section>
 
 <section>
-<div class="st">&#128176; 想定損益（2026年8月）</div>
+<div class="st">&#128176; 想定損益（2026年8月・概算）</div>
+<div class="notice ny" style="margin-bottom:14px">&#9888;&#65039; <strong>本セクションは概算です。</strong>F（食材原価）は実原価ではなく<strong>売上の28%で概算</strong>したもの。L（人件費）は<strong>マネージャー人件費を含みません</strong>。確定値は月次決算の確定後に更新します。</div>
 <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
-  <div class="kpi kpi-green"><div class="kl">想定営業利益</div><div class="kv">&#165;2,350,011</div><div class="ks">予算 &#165;1,747,912</div><div class="ky">予算比 134.4%</div></div>
-  <div class="kpi kpi-green"><div class="kl">営業利益率</div><div class="kv">25.6%</div><div class="ks">予算 21.8%／前年 17.0%</div><div class="ky">+3.8pt（対予算）</div></div>
-  <div class="kpi"><div class="kl">FL率</div><div class="kv">54.2%</div><div class="ks">予算 55.0%</div><div class="ky">&#9679; 予算内</div></div>
+  <div class="kpi kpi-green"><div class="kl">想定営業利益（概算）</div><div class="kv">&#165;2,350,011</div><div class="ks">予算 &#165;1,747,912</div><div class="ky">予算比 134.4%</div></div>
+  <div class="kpi kpi-green"><div class="kl">営業利益率（概算）</div><div class="kv">25.6%</div><div class="ks">予算 21.8%／前年 17.0%</div><div class="ky">+3.8pt（対予算）</div></div>
+  <div class="kpi"><div class="kl">FL率（概算）</div><div class="kv">54.2%</div><div class="ks">予算 55.0%</div><div class="ky">&#9679; 予算内</div></div>
   <div class="kpi"><div class="kl">人件費率（L）</div><div class="kv">26.2%</div><div class="ks">予算 29.0%／前年 33.0%</div><div class="ky">&#9679; 大幅改善</div></div>
 </div>
 <div class="card" style="margin-top:14px">
 <table>
-<thead><tr><th>項目</th><th>8月 実績（想定）</th><th>率</th><th>8月 予算</th><th>率</th><th>予算比</th></tr></thead>
+<thead><tr><th>項目</th><th>8月 実績（概算）</th><th>率</th><th>8月 予算</th><th>率</th><th>予算比</th></tr></thead>
 <tbody>
 <tr><td>売上高（税抜）</td><td>&#165;9,183,471</td><td>100.0%</td><td>&#165;8,000,000</td><td>100.0%</td><td style="color:#2d9e5f;font-weight:700">114.8%</td></tr>
-<tr><td>F：食材原価</td><td>&#165;2,571,372</td><td>28.0%</td><td>&#165;2,080,000</td><td>26.0%</td><td style="color:#d62828;font-weight:700">123.6%</td></tr>
-<tr><td>L：人件費</td><td>&#165;2,410,000</td><td>26.2%</td><td>&#165;2,320,000</td><td>29.0%</td><td style="color:#2d9e5f;font-weight:700">103.9%</td></tr>
+<tr><td>F：食材原価 <span style="font-size:11px;color:var(--muted)">（概算・売上の28%）</span></td><td>&#165;2,571,372</td><td>28.0%</td><td>&#165;2,080,000</td><td>26.0%</td><td style="color:#d62828;font-weight:700">123.6%</td></tr>
+<tr><td>L：人件費 <span style="font-size:11px;color:var(--muted)">（マネージャー人件費を除く）</span></td><td>&#165;2,410,000</td><td>26.2%</td><td>&#165;2,320,000</td><td>29.0%</td><td style="color:#2d9e5f;font-weight:700">103.9%</td></tr>
 <tr style="background:#f8faff;font-weight:700"><td>FL計</td><td>&#165;4,981,372</td><td>54.2%</td><td>&#165;4,400,000</td><td>55.0%</td><td>113.2%</td></tr>
 <tr><td>その他固定費（販管費）</td><td>&#165;1,852,088</td><td>20.2%</td><td>&#165;1,852,088</td><td>23.2%</td><td>100.0%</td></tr>
-<tr style="background:#f0fdf4;font-weight:700"><td>営業利益</td><td>&#165;2,350,011</td><td style="color:#2d9e5f">25.6%</td><td>&#165;1,747,912</td><td>21.8%</td><td style="color:#2d9e5f">134.4%</td></tr>
+<tr style="background:#f0fdf4;font-weight:700"><td>営業利益（概算）</td><td>&#165;2,350,011</td><td style="color:#2d9e5f">25.6%</td><td>&#165;1,747,912</td><td>21.8%</td><td style="color:#2d9e5f">134.4%</td></tr>
 </tbody>
 </table>
-<div class="notice ng" style="margin-top:12px">&#128204; <strong>売上が予算を&#165;1,183,471上回り、営業利益は予算比134.4%・利益率25.6%。</strong>
-最大の要因は<strong>人件費率（L）26.2%</strong>で、予算29.0%・前年33.0%を大きく下回った。売上が伸びた分だけ人を増やさずに捌けており、繁忙期の生産性が高い。<strong>F率28.0%は予算26.0%に対して2.0ポイント超過</strong>しているが、L率の改善がこれを吸収してFL計54.2%と予算内に収まっている。</div>
-<div class="notice nb" style="margin-top:10px">&#128204; <span style="color:var(--muted)">前提：F＝売上の28%、L＝&#165;2,410,000、その他固定費＝FY27予算の販管費計上額（&#165;1,852,088）。支払手数料・水道光熱費・地代家賃の歩合分は売上連動のため、実際の固定費はやや増える可能性がある。前年8月の営業利益率17.0%は予算モデル値（F26.0%／L33.0%）による参考値。</span></div>
+<div class="notice ng" style="margin-top:12px">&#128204; <strong>売上が予算を&#165;1,183,471上回り、営業利益は予算比134.4%・利益率25.6%（いずれも概算）。</strong>
+最大の要因は<strong>人件費率（L）26.2%</strong>で、予算29.0%・前年33.0%を大きく下回った。売上が伸びた分だけ人を増やさずに捌けており、繁忙期の生産性が高い。<strong>F率は概算の28.0%を置いており、予算26.0%に対して2.0ポイント高い前提</strong>だが、L率の改善がこれを吸収してFL計54.2%と予算内に収まっている。</div>
+<div class="notice nb" style="margin-top:10px">&#128204; <span style="color:var(--muted)"><strong>前提：</strong>F＝売上の28%（概算。実原価は未確定）／L＝&#165;2,410,000（マネージャー人件費を除く）／その他固定費＝FY27予算の販管費計上額（&#165;1,852,088）。支払手数料・水道光熱費・地代家賃の歩合分は売上連動のため、実際の固定費はやや増える可能性がある。前年8月の営業利益率17.0%は予算モデル値（F26.0%／L33.0%）による参考値。</span></div>
 </div>
 </section>
 
@@ -397,7 +403,7 @@ const REPORT_DATA = {
 </div>
 </section>
 
-<div class="notice nb" style="margin-top:20px">&#128204; <span style="color:var(--muted)"><strong>前提：</strong>売上KPIは「スマレジ日別（8/1〜4）＋Dinii日別（8/5〜31）」。商品・カテゴリ分析の母数は商品別データの積み上げ&#165;9,201,420で、前年8月の商品別データが無いため<strong>前月比</strong>。損益はF＝28%、L＝&#165;2,410,000、その他固定費＝FY27予算の販管費計上額。</span></div>
+<div class="notice nb" style="margin-top:20px">&#128204; <span style="color:var(--muted)"><strong>前提：</strong>売上KPIは「スマレジ日別（8/1〜4）＋Dinii日別（8/5〜31）」。商品・カテゴリ分析の母数は商品別データの積み上げ&#165;9,201,420で、前年8月の商品別データが無いため<strong>前月比</strong>。損益は概算（F＝売上の28%／L＝&#165;2,410,000・マネージャー人件費を除く／その他固定費＝FY27予算の販管費計上額）。</span></div>
 
 </main>`
   },
@@ -1365,9 +1371,9 @@ function loadMonth(ym) {
   const d = REPORT_DATA[ym];
   if (!d) return;
   document.getElementById('report-body').innerHTML = d.fujisan;
-  document.querySelector('header h1').innerHTML = '&#127861; 富士山パンケーキ 月次売上レポート ― ' + d.label;
+  document.querySelector('header h1').innerHTML = '&#128507; 富士山麓プロジェクト 月次報告 ― ' + d.label;
   document.getElementById('report-date').textContent = '作成日：' + d.reportDate;
-  document.title = '富士山パンケーキ 月次売上レポート ' + d.label;
+  document.title = '富士山麓プロジェクト 月次報告 ' + d.label;
   window.scrollTo(0, 0);
   if (window.parent !== window) {
     window.parent.postMessage({type:'pancake-resize', height: document.body.scrollHeight}, '*');
